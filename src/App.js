@@ -9,17 +9,26 @@ import Signup from './views/auth/Signup';
 import Login from './views/auth/Login';
 import PrivateView from './views/PrivateView';
 import IsPrivate from './components/IsPrivate';
+import AllRoutes from './views/Routes/AllRoutes';
 
 function App() {
   return (
     <div className="App">
-      <Toaster/>
+      <Toaster />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/routes" element={<AllRoutes />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/private" element={<IsPrivate><PrivateView /></IsPrivate>} />
+        <Route
+          path="/private"
+          element={
+            <IsPrivate>
+              <PrivateView />
+            </IsPrivate>
+          }
+        />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
