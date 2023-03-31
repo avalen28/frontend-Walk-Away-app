@@ -45,8 +45,26 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/routes/edit/:routeId" element={<EditRoute />} />
-        <Route path="/routes/delete" element={<DeleteRoute />} />
+        <Route
+          path="/routes/edit/:routeId"
+          element={
+            <IsPrivate>
+              <IsAdmin>
+                <EditRoute />
+              </IsAdmin>
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/routes/delete/:routeId"
+          element={
+            <IsPrivate>
+              <IsAdmin>
+                <DeleteRoute />
+              </IsAdmin>
+            </IsPrivate>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
