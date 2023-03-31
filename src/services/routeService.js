@@ -14,10 +14,11 @@ class RoutesService {
     });
   }
 
+  //all routes
   getRoutes() {
     return this.api.get("/all").then(({ data }) => data);
   }
-
+  //single route
   getRoute(id) {
     return this.api.get(`/${id}`).then(({ data }) => data);
   }
