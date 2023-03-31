@@ -22,6 +22,10 @@ class RoutesService {
   getRoute(id) {
     return this.api.get(`/${id}`).then(({ data }) => data);
   }
+  //add route
+  createNewRoute(body) {
+    return this.api.post("/new", body).then(({data})=>data)
+  }
 }
 
 const routesService = new RoutesService();
