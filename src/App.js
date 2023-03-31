@@ -1,21 +1,19 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import Home from './views/Home';
-import Navbar from './components/Navbar';
-import ErrorPage from './views/ErrorPage';
-import NotFound from './views/NotFound';
-import Signup from './views/auth/Signup';
-import Login from './views/auth/Login';
-import PrivateView from './views/PrivateView';
-import IsPrivate from './components/IsPrivate';
-import IsAdmin from './components/IsAdmin';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import Home from "./views/Home";
+import Navbar from "./components/Navbar";
+import ErrorPage from "./views/ErrorPage";
+import NotFound from "./views/NotFound";
+import Signup from "./views/auth/Signup";
+import Login from "./views/auth/Login";
+import IsPrivate from "./components/IsPrivate";
+import IsAdmin from "./components/IsAdmin";
 //Routes import------------------------
-import AllRoutes from './views/Routes/AllRoutes';
-import SingleRoute from './views/Routes/SingleRoute';
-import AddRoute from './views/Routes/AddRoute';
+import AllRoutes from "./views/Routes/AllRoutes";
+import SingleRoute from "./views/Routes/SingleRoute";
+import AddRoute from "./views/Routes/AddRoute";
 import EditRoute from "./views/Routes/EditRoute";
-
 
 function App() {
   return (

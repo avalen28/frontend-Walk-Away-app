@@ -7,7 +7,6 @@ import RouteCard from "../../components/RouteCard";
 
 const AllRoutes = () => {
   const { user } = useAuth();
-  setTimeout(()=>console.log(user.isAdmin),1000)
   const [routes, setRoutes] = useState(null);
   const Navigate = useNavigate();
   const getRoutes = async () => {

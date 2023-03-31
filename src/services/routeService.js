@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 class RoutesService {
   constructor() {
     this.api = axios.create({
@@ -34,12 +33,21 @@ class RoutesService {
     return this.api
       .post("/new", body)
       .then(({ data }) => data)
+      .catch((err) => err.response.data.message);
+  }
+  //update route
+  editRoute(id, body) {
+    return this.api
+      .put(`/edit/${id}`, body)
+      .then(({ data }) => data)
       .catch((err) => console.error(err));
   }
 
-// delete route
+  // delete route
   deleteRoute(id) {
-    return this.api.delete(`/delete/${id}`).catch((error) => console.error(error)); 
+    return this.api
+      .delete(`/delete/${id}`)
+      .catch((error) => console.error(error));
   }
 }
 

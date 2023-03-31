@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import routesService from "../../services/routeService";
 import { useNavigate } from "react-router-dom";
+import formatRouteBody from "../../utils";
+import toast from "react-hot-toast";
 
 const AddRoute = () => {
   const defaultRoute = {
@@ -26,22 +28,13 @@ const AddRoute = () => {
   };
 
   const handleAddRoute = async () => {
-    const inventaryArr = newRoute.inventary
-      .split(",")
-      .map((item) => item.trim());
-    const distanceNumber = Number(newRoute.distance);
-    const levelNumber = Number(newRoute.level);
-    const estimatedNumber = Number(newRoute.estimatedDuration);
-    const routeToDB = {
-      ...newRoute,
-      inventary: inventaryArr,
-      distance: distanceNumber,
-      level: levelNumber,
-      estimatedDuration: estimatedNumber,
-    };
+    const routeCorrectFormatToDB = formatRouteBody(newRoute);
     try {
-      const createdRoute = await routesService.createNewRoute(routeToDB);
+      const createdRoute = await routesService.createNewRoute(
+        routeCorrectFormatToDB
+      );
       Navigate(`/routes/${createdRoute._id}`);
+      
     } catch (error) {
       console.error(error);
     }
@@ -62,6 +55,7 @@ const AddRoute = () => {
           name="name"
           value={newRoute.name}
           onChange={handleChange}
+          required
         />
         <label>Route img</label>
         <input
@@ -69,6 +63,7 @@ const AddRoute = () => {
           name="image"
           value={newRoute.image}
           onChange={handleChange}
+          required
         />
         <label>Distance (km)</label>
         <input
@@ -77,6 +72,7 @@ const AddRoute = () => {
           name="distance"
           value={newRoute.distance}
           onChange={handleChange}
+          required
         />
         <label>Level</label>
         <input
@@ -86,6 +82,7 @@ const AddRoute = () => {
           name="level"
           value={newRoute.level}
           onChange={handleChange}
+          required
         />
         <label>Description</label>
         <input
@@ -101,6 +98,7 @@ const AddRoute = () => {
           name="estimatedDuration"
           value={newRoute.estimatedDuration}
           onChange={handleChange}
+          required
         />
         <label>Inventary</label>
         <input
@@ -109,6 +107,7 @@ const AddRoute = () => {
           value={newRoute.inventary}
           placeholder="enter your inventary items separated by commas"
           onChange={handleChange}
+          required
         />
         <label>tips</label>
         <input
