@@ -14,7 +14,6 @@ import IsAdmin from './components/IsAdmin';
 import AllRoutes from './views/Routes/AllRoutes';
 import SingleRoute from './views/Routes/SingleRoute';
 import AddRoute from './views/Routes/AddRoute';
-import DeleteRoute from "./views/Routes/DeleteRoute";
 import EditRoute from "./views/Routes/EditRoute";
 
 
@@ -26,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/routes" element={<AllRoutes />} />
+        <Route path="/routes/all" element={<AllRoutes />} />
         <Route
           path="/routes/:routeId"
           element={
@@ -51,16 +50,6 @@ function App() {
             <IsPrivate>
               <IsAdmin>
                 <EditRoute />
-              </IsAdmin>
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/routes/delete/:routeId"
-          element={
-            <IsPrivate>
-              <IsAdmin>
-                <DeleteRoute />
               </IsAdmin>
             </IsPrivate>
           }

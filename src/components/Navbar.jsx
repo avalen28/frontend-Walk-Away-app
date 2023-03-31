@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Navbar() {
-  const { user, isLoggedIn, isLoading, logOutUser } = useAuth();
+  const { user, isLoggedIn, logOutUser } = useAuth();
   const navigate = useNavigate();
   return (
     <div>
@@ -13,20 +13,18 @@ export default function Navbar() {
           <NavLink to="/">Home</NavLink>
         </li>
         {!isLoggedIn && (
-          <li>
-            <NavLink to="/signup">Sign up</NavLink>
-          </li>
+          <div>
+            <li>
+              <NavLink to="/signup">Sign up</NavLink>
+            </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
+          </div>
         )}
-        {!isLoggedIn && (
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-        )}
-        {isLoggedIn && (
-          <li>
-            <Link to="/routes">Routes</Link>
-          </li>
-        )}
+
+        <Link to="/routes/all">Routes</Link>
+
         {isLoggedIn && (
           <li>
             <NavLink to="/private">Private view</NavLink>

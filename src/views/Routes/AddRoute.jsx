@@ -90,7 +90,7 @@ const AddRoute = () => {
         <label>Description</label>
         <input
           type="text"
-          maxlength="500"
+          maxLength="500"
           name="description"
           value={newRoute.description}
           onChange={handleChange}
