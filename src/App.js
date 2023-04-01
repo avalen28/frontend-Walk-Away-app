@@ -14,6 +14,8 @@ import AllRoutes from "./views/Routes/AllRoutes";
 import SingleRoute from "./views/Routes/SingleRoute";
 import AddRoute from "./views/Routes/AddRoute";
 import EditRoute from "./views/Routes/EditRoute";
+// Users import ----------------------
+import AllUsers from "./views/Users/AllUsers";
 
 function App() {
   return (
@@ -21,8 +23,7 @@ function App() {
       <Toaster />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
+        {/* Routes route---------------------------------- */}
         <Route path="/routes/all" element={<AllRoutes />} />
         <Route
           path="/routes/:routeId"
@@ -52,7 +53,22 @@ function App() {
             </IsPrivate>
           }
         />
+        {/* User route---------------------------------- */}
+        <Route
+          path="/users/all"
+          element={
+            <IsPrivate>
+              <IsAdmin>
+                <AllUsers />
+              </IsAdmin>
+            </IsPrivate>
+          }
+        />
+        {/* Auth route---------------------------------- */}
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        {/* Miscel route---------------------------------- */}
+        <Route path="/" element={<Home />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

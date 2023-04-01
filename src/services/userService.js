@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class userService {
+class UserService {
   constructor() {
     this.api = axios.create({
       baseURL: `${process.env.REACT_APP_BACKEND_URL}/users`,
@@ -13,9 +13,16 @@ class userService {
       return config;
     });
   }
+  //all Users
+  getUsers() {
+    return this.api
+      .get("all")
+      .then(({ data }) => data)
+      .catch((err) => console.error(err));
+  }
 
 }
 
-// getUser(userId){
-//     return this.api.get
-// }
+const userService = new UserService();
+
+export default userService;
