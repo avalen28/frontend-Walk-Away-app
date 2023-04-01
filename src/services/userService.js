@@ -27,7 +27,10 @@ class UserService {
       .then(({ data }) => data)
       .catch((err) => console.error(err));
   }
-
+  //delete user
+  deleteUser() {
+    return this.api.delete("/delete").catch((error) => console.error(error));
+  }
 }
 
 const userService = new UserService();

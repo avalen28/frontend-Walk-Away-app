@@ -27,7 +27,7 @@ export default function Navbar() {
 
         {isLoggedIn && (
           <li>
-            <NavLink to="/private">Private view</NavLink>
+            <NavLink to="/users/me">Profile</NavLink>
           </li>
         )}
         {isLoggedIn && (
