@@ -16,6 +16,7 @@ import AddRoute from "./views/Routes/AddRoute";
 import EditRoute from "./views/Routes/EditRoute";
 // Users import ----------------------
 import AllUsers from "./views/Users/AllUsers";
+import UserProfile from "./views/Users/UserProfile";
 
 function App() {
   return (
@@ -61,6 +62,14 @@ function App() {
               <IsAdmin>
                 <AllUsers />
               </IsAdmin>
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/users/me"
+          element={
+            <IsPrivate>
+              <UserProfile />
             </IsPrivate>
           }
         />

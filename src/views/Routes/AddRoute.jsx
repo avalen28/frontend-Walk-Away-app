@@ -3,7 +3,7 @@ import { useState } from "react";
 import routesService from "../../services/routeService";
 import { useNavigate } from "react-router-dom";
 import formatRouteBody from "../../utils";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 
 const AddRoute = () => {
   const defaultRoute = {

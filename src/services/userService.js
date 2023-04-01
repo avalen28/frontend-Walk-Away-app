@@ -16,7 +16,14 @@ class UserService {
   //all Users
   getUsers() {
     return this.api
-      .get("all")
+      .get("/all")
+      .then(({ data }) => data)
+      .catch((err) => console.error(err));
+  }
+  //user profile
+  getUser() {
+    return this.api
+      .get("/me")
       .then(({ data }) => data)
       .catch((err) => console.error(err));
   }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import userService from "../../services/userService";
-import { useNavigate } from "react-router-dom";
-import UserCard from "../../components/UserCard";
+
 
 const AllUsers = () => {
   const [users, setUsers] = useState(null)
@@ -20,7 +18,14 @@ const AllUsers = () => {
     // eslint-disable-next-line
   },[])
   return <div>
-    {users && users.map(users => <UserCard user={users} key={users._id }/>)}
+    {users && users.map(users => {
+      return (
+        <div className="user-info" key={users._id}>
+          <img src={users.img} alt="user avatar" style={{ width: "100px" }} />
+          <p>{users.username}</p>
+        </div>
+      )
+    })}
   </div>;
 };
 
