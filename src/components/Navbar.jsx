@@ -9,9 +9,7 @@ export default function Navbar() {
     <div>
       {user && <p>Hello {user.username}</p>}
       <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
+       
         {!isLoggedIn && (
           <div>
             <li>
@@ -21,14 +19,6 @@ export default function Navbar() {
               <NavLink to="/login">Login</NavLink>
             </li>
           </div>
-        )}
-
-        <Link to="/routes/all">Routes</Link>
-
-        {isLoggedIn && (
-          <li>
-            <NavLink to="/users/me">Profile</NavLink>
-          </li>
         )}
         {isLoggedIn && (
           <li>

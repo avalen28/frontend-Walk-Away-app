@@ -3,21 +3,24 @@ import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Home from "./views/Home";
 import Navbar from "./components/Navbar";
+import NavBarInf from "./components/NavBarInf";
 import ErrorPage from "./views/ErrorPage";
 import NotFound from "./views/NotFound";
 import Signup from "./views/auth/Signup";
 import Login from "./views/auth/Login";
 import IsPrivate from "./components/IsPrivate";
 import IsAdmin from "./components/IsAdmin";
-//Routes import------------------------
+//Routes import
 import AllRoutes from "./views/Routes/AllRoutes";
 import SingleRoute from "./views/Routes/SingleRoute";
 import AddRoute from "./views/Routes/AddRoute";
 import EditRoute from "./views/Routes/EditRoute";
-// Users import ----------------------
+// Users import 
 import AllUsers from "./views/Users/AllUsers";
 import UserProfile from "./views/Users/UserProfile";
 import EditUser from "./views/Users/EditUser";
+// Inventary import 
+import Inventary from "./views/Inventary/Inventary";
 
 function App() {
   return (
@@ -82,6 +85,8 @@ function App() {
             </IsPrivate>
           }
         />
+        {/* Inventary routes */}
+        <Route path="/inventary" element={<Inventary />} />
         {/* Auth routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -90,6 +95,7 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <NavBarInf />
     </div>
   );
 }
