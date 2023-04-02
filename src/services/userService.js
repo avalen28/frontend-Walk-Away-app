@@ -29,7 +29,9 @@ class UserService {
   }
   //delete user
   deleteUser() {
-    return this.api.delete("/delete").catch((error) => console.error(error));
+    return this.api
+      .delete("/delete")
+      .catch((error) => console.error(error));
   }
 }
 
