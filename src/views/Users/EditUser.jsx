@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import userService from "../../services/userService";
 import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const EditUser = () => {
-  const { user } = useAuth();
-    const [userToEdit, setUserToEdit] = useState(user);
-    const [errorMessage, setErrorMessage] = useState(null);
+  const { user, storeToken, authenticateUser, removeToken } = useAuth();
+  const [userToEdit, setUserToEdit] = useState(user);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [newPassword, setNewPassword] = useState({
     password1: "",
     password2: "",
   });
-
+  const Navigate = useNavigate();
   const handleChange = (e) => {
     setUserToEdit((prev) => {
       return {
@@ -27,6 +28,25 @@ const EditUser = () => {
       };
     });
   };
+  const handleSendToDB = async () => {
+    const body = { ...userToEdit, ...newPassword };
+    try {
+      const userFromDB = await userService.editUser(body);
+      if (userFromDB) {
+        removeToken();
+        storeToken(userFromDB.authToken);
+        authenticateUser();
+        Navigate("/users/me");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSendToDB();
+  };
 
   useEffect(() => {
     if (newPassword.password1 !== newPassword.password2) {
@@ -39,7 +59,7 @@ const EditUser = () => {
   return (
     <div>
       <h2>Edit your profile</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Username</label>
         <input
           type="text"
@@ -70,7 +90,6 @@ const EditUser = () => {
           name="password1"
           value={newPassword.password1}
           onChange={handleChangePassword}
-          required
         />
         <label>Confirm your new password</label>
         <input
@@ -78,10 +97,9 @@ const EditUser = () => {
           name="password2"
           value={newPassword.password2}
           onChange={handleChangePassword}
-          required
         />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <button>Edit your profile</button>
+        <button type="submit">Edit your profile</button>
       </form>
     </div>
   );

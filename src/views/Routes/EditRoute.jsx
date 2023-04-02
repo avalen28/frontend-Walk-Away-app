@@ -109,7 +109,8 @@ const EditRoute = () => {
             value={route.tips}
             onChange={handleChange}
           />
-          <button>Update route</button>
+          
+          <button type="submit">Update route</button>
         </form>
       )}
     </div>
