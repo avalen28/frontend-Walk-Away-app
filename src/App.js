@@ -17,6 +17,7 @@ import EditRoute from "./views/Routes/EditRoute";
 // Users import ----------------------
 import AllUsers from "./views/Users/AllUsers";
 import UserProfile from "./views/Users/UserProfile";
+import EditUser from "./views/Users/EditUser";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Toaster />
       <Navbar />
       <Routes>
-        {/* Routes route---------------------------------- */}
+        {/* Routes routes */}
         <Route path="/routes/all" element={<AllRoutes />} />
         <Route
           path="/routes/:routeId"
@@ -54,7 +55,7 @@ function App() {
             </IsPrivate>
           }
         />
-        {/* User route---------------------------------- */}
+        {/* User routes */}
         <Route
           path="/users/all"
           element={
@@ -73,10 +74,18 @@ function App() {
             </IsPrivate>
           }
         />
-        {/* Auth route---------------------------------- */}
+        <Route
+          path="/users/edit"
+          element={
+            <IsPrivate>
+              <EditUser />
+            </IsPrivate>
+          }
+        />
+        {/* Auth routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {/* Miscel route---------------------------------- */}
+        {/* Miscel routes */}
         <Route path="/" element={<Home />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="*" element={<NotFound />} />
