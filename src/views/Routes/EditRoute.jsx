@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import routesService from "../../services/routeService";
-import formatRouteBody from "../../utils";
+// import formatRouteBody from "../../utils";
+import { formatRouteBody } from "../../utils";
 
 const EditRoute = () => {
   const { routeId } = useParams();

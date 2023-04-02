@@ -19,6 +19,12 @@ class InventaryService {
           .then(({ data }) => data)
           .catch((err) => console.error(err));
     }
+  editInventary(body) {
+    return this.api
+      .put("/edit",body)
+      .then(({ data }) => data)
+      .catch((err) => console.error(err));
+  }
     
 }
 const inventaryService = new InventaryService();

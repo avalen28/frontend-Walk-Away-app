@@ -21,6 +21,7 @@ import UserProfile from "./views/Users/UserProfile";
 import EditUser from "./views/Users/EditUser";
 // Inventary import 
 import Inventary from "./views/Inventary/Inventary";
+import EditInventary from "./views/Inventary/EditInventary";
 
 function App() {
   return (
@@ -87,6 +88,7 @@ function App() {
         />
         {/* Inventary routes */}
         <Route path="/inventary" element={<Inventary />} />
+        <Route path="/inventary/edit" element={<EditInventary/>} />
         {/* Auth routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

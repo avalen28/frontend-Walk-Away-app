@@ -1,4 +1,5 @@
-//This function is used to uptade the correct format required in the Model-backened
+//This function is used to uptade the correct format
+//required in the Model Route - backened
 const formatRouteBody = (routeToFormat) => {
   let inventaryArr;
   if (typeof routeToFormat.inventary === "string") {
@@ -24,4 +25,25 @@ const formatRouteBody = (routeToFormat) => {
   return routeFormatedToDB;
 };
 
-export default formatRouteBody;
+//This function is used to uptade the correct format
+//required in the Model inventary - backened
+const formatBody = (inventary) => {
+  let elemArr;
+  if (inventary.other === "object" && inventary.other.length === 1) {
+    elemArr = ["Nothing more in your inventary"];// check espacios
+  }
+  if (typeof inventary.other === "string") {
+    elemArr = inventary.other.split(",").map((item) => item.trim());
+  } else {
+    elemArr = inventary.other;
+  }
+  const inventaryFormated = {
+    ...inventary,
+    other: elemArr,
+  };
+  return inventaryFormated;
+};
+
+// export default formatRouteBody;
+
+export { formatRouteBody, formatBody };
