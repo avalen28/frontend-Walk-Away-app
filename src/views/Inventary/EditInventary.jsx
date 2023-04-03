@@ -19,12 +19,18 @@ const EditInventary = () => {
     // eslint-disable-next-line
   }, []);
 
-  const handleAddToDB = () => {
-    const inventaryToDB = formatBody(inventary);
-    console.log("formated",inventaryToDB);
+  const handleAddToDB = async() => {
+      const inventaryToDB = formatBody(inventary);
+
+    try {
+        await inventaryService.editInventary(inventaryToDB)
+        Navigate("/inventary")
+    } catch (error) {
+        console.error(error)
+    }
   };
     const handleSubmit = (e) => {
-      console.log("handlesub",inventary)
+
     e.preventDefault();
     handleAddToDB();
   };
