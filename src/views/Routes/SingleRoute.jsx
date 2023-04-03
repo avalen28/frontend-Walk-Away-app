@@ -62,6 +62,13 @@ const SingleRoute = () => {
           <p>{`${route.distance}km`}</p>
           <p>{`Estimated time:${route.level}h.`}</p>
           <p>{route.description}</p>
+          <p>You will need:</p>
+          <ul>
+            <li>Drinks: {route.inventary.drinks}</li>
+            <li>Food: {route.inventary.food}</li>
+            <li>Sportswear: {route.inventary.sportswear}</li>
+            <li>Footwear: {route.inventary.footwear}</li>
+          </ul>
           <p>{route.tips}</p>
           {savedButton && (
             <button onClick={handleSaveRoute}>Save this route</button>

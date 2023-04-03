@@ -13,7 +13,7 @@ const AddRoute = () => {
     level: 1,
     description: "",
     estimatedDuration: 0,
-    inventary: "",
+    inventary: {drinks:"",food:"",sportswear:"",footwear:""},
     tips: "",
   };
   const Navigate = useNavigate();
@@ -44,6 +44,10 @@ const AddRoute = () => {
     handleAddRoute();
     setNewRoute(defaultRoute);
   };
+
+  const handleInventary = (e) => {
+    console.log(e.target.value)
+  }
 
   return (
     <div>
@@ -100,15 +104,42 @@ const AddRoute = () => {
           onChange={handleChange}
           required
         />
-        <label>Inventary</label>
-        <input
-          type="text"
-          name="inventary"
-          value={newRoute.inventary}
-          placeholder="enter your inventary items separated by commas"
-          onChange={handleChange}
-          required
-        />
+        <h3>Inventary</h3>
+        <label>Drinks</label>
+        <select name="drinks" onChange={handleInventary} required>
+          <option value="1L.">1L.</option>
+          <option value="1.5L.">1.5L.</option>
+          <option value="2L.">2L.</option>
+          <option value="Isotonic drink">Isotonic drink</option>
+        </select>
+        <label>Food</label>
+        <select name="food" onChange={handleInventary} required>
+          <option value="Lunch">Lunch</option>
+          <option value="Snacks">Snacks</option>
+          <option value="All day meal">All day meal</option>
+          <option value="Two days meal">Two days meal</option>
+        </select>
+        <label>Sportswear</label>
+        <select name="sportswear" onChange={handleInventary} required>
+          <option value="Trekking clothes (spring weather)">
+            Trekking clothes (spring weather)
+          </option>
+          <option value="Moutain clothes(winter weather)">
+            Moutain clothes(winter weather)
+          </option>
+          <option value="High Mountain clothes">High Mountain clothes</option>
+          <option value="Long Route">Long Route</option>
+        </select>
+        <label>Footwear</label>
+        <select name="footwear" onChange={handleInventary} required>
+          <option value="Light boots or trekking slippers">
+            Light boots or trekking slippers
+          </option>
+          <option value="Moutain boots">Moutain boots</option>
+          <option value="High Mountain boots">High Mountain boots</option>
+ 
+        </select>
+
         <label>tips</label>
         <input
           type="text"
