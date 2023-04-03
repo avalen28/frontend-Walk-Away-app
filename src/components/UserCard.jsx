@@ -27,7 +27,7 @@ const UserCard = ({ user }) => {
       <h4>{user.email}</h4>
       <p>{user.level}</p>
       <p>{user.experiencePoints}</p>
-      <Link to ={"/savedRoutes/all"} >See your saved routes</Link>
+      <Link to ={"/saved-routes/all"} >See your saved routes</Link>
       <Link to={"/users/edit"}>Edit your profile</Link>
       <button onClick={() => setDeleteRoute(true)}>Delete profile</button>
       {deleteRoute && (

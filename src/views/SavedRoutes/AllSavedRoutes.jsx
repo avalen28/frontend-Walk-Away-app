@@ -14,22 +14,61 @@ const AllSavedRoutes = () => {
       console.error(error);
     }
   };
+  const handleStatus = async (id, status) => {
+    try {
+        const patata = await savedRoutesService.editSavedRoute(id, { status });
+        getSavedRoutes()
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     getSavedRoutes();
   }, []);
+    
   return (
     <div>
       {savedRoutes &&
-              savedRoutes.map((elem) => {
-                  return (
-                      <div>
-                          <RouteCard route={elem.routeId} key={elem._id} />
-                          <p>{elem.status}</p>
-                          <button>XXXXX</button>
-                      </div>
-
-                  )
-              })}
+        savedRoutes.map((savedRoute) => {
+          return (
+            <div>
+              <RouteCard route={savedRoute.routeId} key={savedRoute._id} />
+              <div>
+                <p>
+                  {" "}
+                  Status: {savedRoute.status}
+                  {savedRoute.status === "pending" ? (
+                    <button
+                      onClick={() => handleStatus(savedRoute._id, "started")}
+                    >
+                      Start route
+                    </button>
+                  ) : savedRoute.status === "started" ? (
+                    <div>
+                      <button
+                        onClick={() => handleStatus(savedRoute._id, "finished")}
+                      >
+                        Finish route
+                      </button>
+                      <button
+                        onClick={() => handleStatus(savedRoute._id, "pending")}
+                      >
+                        Cancel route
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => handleStatus(savedRoute._id, "pending")}
+                    >
+                      Repeat route
+                    </button>
+                  )}
+                </p>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 };

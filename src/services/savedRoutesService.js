@@ -31,6 +31,12 @@ class SavedRoutesService {
       .then(({ data }) => data)
       .catch((err) => console.error(err));
   }
+  editSavedRoute(savedRouteId, status) {
+    return this.api
+      .put(`/edit/${savedRouteId}`,status)
+      .then(({ data }) => data)
+      .catch((err) => console.error(err));
+  }
 }
 
 const savedRoutesService = new SavedRoutesService();
