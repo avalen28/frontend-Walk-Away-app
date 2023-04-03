@@ -9,6 +9,7 @@ const RouteCard = ({route}) => {
           <img src={route.image} alt="route view" style={{ width: "100px" }} />
         </Link>
         <p>{`Level:${route.level}`}</p>
+       
       </div>
     );
 

@@ -22,6 +22,8 @@ import EditUser from "./views/Users/EditUser";
 // Inventary import 
 import Inventary from "./views/Inventary/Inventary";
 import EditInventary from "./views/Inventary/EditInventary";
+// SavedRoutes import 
+import AllSavedRoutes from "./views/SavedRoutes/AllSavedRoutes";
 
 function App() {
   return (
@@ -88,7 +90,9 @@ function App() {
         />
         {/* Inventary routes */}
         <Route path="/inventary" element={<Inventary />} />
-        <Route path="/inventary/edit" element={<EditInventary/>} />
+        <Route path="/inventary/edit" element={<EditInventary />} />
+        {/* SavedRoutes routes */}
+        <Route path="/saved-routes/all" element={<AllSavedRoutes/>}/>
         {/* Auth routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

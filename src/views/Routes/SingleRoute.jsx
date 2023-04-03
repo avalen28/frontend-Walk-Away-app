@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import routesService from "../../services/routeService";
+import savedRoutesService from "../../services/savedRoutesService";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import RouteCard from "../../components/RouteCard";
@@ -10,11 +11,32 @@ const SingleRoute = () => {
   const params = useParams();
   const Navigate = useNavigate();
   const [route, setRoute] = useState(null);
+  const [savedButton, setSavedButton] = useState(false);
   const [deleteRoute, setDeleteRoute] = useState(false);
   const getRoute = async () => {
     try {
-      const response = await routesService.getRoute(params.routeId);
-      setRoute(response);
+      const route = await routesService.getRoute(params.routeId);
+
+      setRoute(route);
+      const responseSavedRoute = await savedRoutesService.getSingleRoute(
+        params.routeId
+      );
+
+      if (!responseSavedRoute) {
+        setSavedButton(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleSaveRoute = async () => {
+    try {
+      const savedRouteFromDB = await savedRoutesService.postSavedRoute(
+        route._id
+      );
+      if (savedRouteFromDB) {
+        Navigate("/saved-routes/all");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -41,7 +63,9 @@ const SingleRoute = () => {
           <p>{`Estimated time:${route.level}h.`}</p>
           <p>{route.description}</p>
           <p>{route.tips}</p>
-          <Link to={"/AUN POR DEFINIR"}>Save this route</Link>
+          {savedButton && (
+            <button onClick={handleSaveRoute}>Save this route</button>
+          )}
           {user && user.isAdmin && (
             <Link to={`/routes/edit/${route._id}`}>Edit this route</Link>
           )}
