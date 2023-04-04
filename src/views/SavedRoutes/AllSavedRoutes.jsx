@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import savedRoutesService from "../../services/savedRoutesService";
-import routesService from "../../services/routeService";
 import RouteCard from "../../components/RouteCard";
 
 const AllSavedRoutes = () => {
@@ -16,7 +15,7 @@ const AllSavedRoutes = () => {
   };
   const handleStatus = async (id, status) => {
     try {
-        const patata = await savedRoutesService.editSavedRoute(id, { status });
+        await savedRoutesService.editSavedRoute(id, { status });
         getSavedRoutes()
     } catch (error) {
       console.error(error);

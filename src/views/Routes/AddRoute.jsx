@@ -13,7 +13,12 @@ const AddRoute = () => {
     level: 1,
     description: "",
     estimatedDuration: 0,
-    inventary: { drinks: "1L.", food: "", sportswear: "", footwear: "" },
+    inventary: {
+      drinks: "1L.",
+      food: "Lunch",
+      sportswear: "Trekking clothes (spring weather)",
+      footwear: "Light boots or trekking slippers",
+    },
     tips: "",
   };
   const Navigate = useNavigate();
