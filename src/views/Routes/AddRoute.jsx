@@ -13,11 +13,12 @@ const AddRoute = () => {
     level: 1,
     description: "",
     estimatedDuration: 0,
-    inventary: {drinks:"",food:"",sportswear:"",footwear:""},
+    inventary: { drinks: "1L.", food: "", sportswear: "", footwear: "" },
     tips: "",
   };
   const Navigate = useNavigate();
   const [newRoute, setNewRoute] = useState(defaultRoute);
+
   const handleChange = (e) => {
     setNewRoute((prev) => {
       return {
@@ -34,7 +35,6 @@ const AddRoute = () => {
         routeCorrectFormatToDB
       );
       Navigate(`/routes/${createdRoute._id}`);
-      
     } catch (error) {
       console.error(error);
     }
@@ -46,8 +46,17 @@ const AddRoute = () => {
   };
 
   const handleInventary = (e) => {
-    console.log(e.target.value)
-  }
+
+    console.log(e.target.name)
+    console.log(e.target.value);
+     setNewRoute((prev) => {
+       return {
+         ...prev,
+         inventary: { ...prev.inventary, [e.target.name]: e.target.value }
+       };
+     });
+    console.log(newRoute)
+  };
 
   return (
     <div>
@@ -106,14 +115,24 @@ const AddRoute = () => {
         />
         <h3>Inventary</h3>
         <label>Drinks</label>
-        <select name="drinks" onChange={handleInventary} required>
+        <select
+          name="drinks"
+          value={newRoute.inventary.drinks}
+          onChange={handleInventary}
+          required
+        >
           <option value="1L.">1L.</option>
           <option value="1.5L.">1.5L.</option>
           <option value="2L.">2L.</option>
           <option value="Isotonic drink">Isotonic drink</option>
         </select>
         <label>Food</label>
-        <select name="food" onChange={handleInventary} required>
+        <select
+          name="food"
+          onChange={handleInventary}
+          value={newRoute.inventary.food}
+          required
+        >
           <option value="Lunch">Lunch</option>
           <option value="Snacks">Snacks</option>
           <option value="All day meal">All day meal</option>
@@ -137,7 +156,6 @@ const AddRoute = () => {
           </option>
           <option value="Moutain boots">Moutain boots</option>
           <option value="High Mountain boots">High Mountain boots</option>
- 
         </select>
 
         <label>tips</label>
