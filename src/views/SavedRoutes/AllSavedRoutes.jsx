@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import savedRoutesService from "../../services/savedRoutesService";
 import RouteCard from "../../components/RouteCard";
+import { useAuth } from "../../hooks/useAuth";
 
 const AllSavedRoutes = () => {
+  const { storeToken, authenticateUser, removeToken } = useAuth();
   const [savedRoutes, setSavedRoutes] = useState(null);
 
   const getSavedRoutes = async () => {
@@ -15,8 +17,14 @@ const AllSavedRoutes = () => {
   };
   const handleStatus = async (id, status) => {
     try {
-        await savedRoutesService.editSavedRoute(id, { status });
-        getSavedRoutes()
+      const response = await savedRoutesService.editSavedRoute(id, { status });
+      // if finished, coger de la response del editsavedroute el token, cargarte el previo, etc
+      if (status === "finished" && response) {
+        removeToken();
+        storeToken(response.authToken);
+        authenticateUser();
+      }
+      getSavedRoutes();
     } catch (error) {
       console.error(error);
     }
@@ -25,7 +33,7 @@ const AllSavedRoutes = () => {
   useEffect(() => {
     getSavedRoutes();
   }, []);
-    
+
   return (
     <div>
       {savedRoutes &&
