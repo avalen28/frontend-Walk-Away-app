@@ -4,7 +4,7 @@ import RouteCard from "../../components/RouteCard";
 import { useAuth } from "../../hooks/useAuth";
 
 const AllSavedRoutes = () => {
-  const { storeToken, authenticateUser, removeToken } = useAuth();
+  const { user, storeToken, authenticateUser, removeToken } = useAuth();
   const [savedRoutes, setSavedRoutes] = useState(null);
 
   const getSavedRoutes = async () => {
@@ -32,6 +32,7 @@ const AllSavedRoutes = () => {
 
   useEffect(() => {
     getSavedRoutes();
+    console.log(user);
   }, []);
 
   return (
@@ -39,40 +40,49 @@ const AllSavedRoutes = () => {
       {savedRoutes &&
         savedRoutes.map((savedRoute) => {
           return (
-            <div>
-              <RouteCard route={savedRoute.routeId} key={savedRoute._id} />
-              <div>
-                <p>
-                  {" "}
-                  Status: {savedRoute.status}
-                  {savedRoute.status === "pending" ? (
-                    <button
-                      onClick={() => handleStatus(savedRoute._id, "started")}
-                    >
-                      Start route
-                    </button>
-                  ) : savedRoute.status === "started" ? (
-                    <div>
+            <div key={savedRoute._id} className="route-card-saved-all">
+              <RouteCard route={savedRoute.routeId} />
+              {user && user.level < savedRoute.routeId.level ? (
+                <p className="route-card-saved-status-negative">
+                  {`Sorry but your current level (level ${user.level}) is below the route level`}
+                </p>
+              ) : (
+                <div className="route-card-saved-new-status">
+                  <p>
+                    Status: {savedRoute.status}
+                    {savedRoute.status === "pending" ? (
                       <button
-                        onClick={() => handleStatus(savedRoute._id, "finished")}
+                        onClick={() => handleStatus(savedRoute._id, "started")}
                       >
-                        Finish route
+                        Start route
                       </button>
+                    ) : savedRoute.status === "started" ? (
+                      <div>
+                        <button
+                          onClick={() =>
+                            handleStatus(savedRoute._id, "finished")
+                          }
+                        >
+                          Finish route
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleStatus(savedRoute._id, "pending")
+                          }
+                        >
+                          Cancel route
+                        </button>
+                      </div>
+                    ) : (
                       <button
                         onClick={() => handleStatus(savedRoute._id, "pending")}
                       >
-                        Cancel route
+                        Repeat route
                       </button>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => handleStatus(savedRoute._id, "pending")}
-                    >
-                      Repeat route
-                    </button>
-                  )}
-                </p>
-              </div>
+                    )}
+                  </p>
+                </div>
+              )}
             </div>
           );
         })}
