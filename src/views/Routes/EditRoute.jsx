@@ -44,11 +44,20 @@ const EditRoute = () => {
     e.preventDefault();
     handleAddToDB();
   };
+
+    const handleInventary = (e) => {
+      setRoute((prev) => {
+        return {
+          ...prev,
+          inventary: { ...prev.inventary, [e.target.name]: e.target.value },
+        };
+      });
+    };
   return (
     <div>
       {route && (
         <form onSubmit={handleUpdate}>
-          <h2>Add a new route</h2>
+          <h2>Edit route</h2>
           <label>Route name</label>
           <input
             type="text"
@@ -95,14 +104,60 @@ const EditRoute = () => {
             value={route.estimatedDuration}
             onChange={handleChange}
           />
-          <label>Inventary</label>
-          <input
-            type="text"
-            name="inventary"
-            value={route.inventary}
-            placeholder="enter your inventary items separated by commas"
-            onChange={handleChange}
-          />
+          <h3>Inventary</h3>
+          <label>Drinks</label>
+          <select
+            name="drinks"
+            value={route.inventary.drinks}
+            onChange={handleInventary}
+            required
+          >
+            <option value="1L.">1L.</option>
+            <option value="1.5L.">1.5L.</option>
+            <option value="2L.">2L.</option>
+            <option value="Isotonic drink">Isotonic drink</option>
+          </select>
+          <label>Food</label>
+          <select
+            name="food"
+            onChange={handleInventary}
+            value={route.inventary.food}
+            required
+          >
+            <option value="Lunch">Lunch</option>
+            <option value="Snacks">Snacks</option>
+            <option value="All day meal">All day meal</option>
+            <option value="Two days meal">Two days meal</option>
+          </select>
+          <label>Sportswear</label>
+          <select
+            name="sportswear"
+            value={route.inventary.sportswear}
+            onChange={handleInventary}
+            required
+          >
+            <option value="Trekking clothes (spring weather)">
+              Trekking clothes (spring weather)
+            </option>
+            <option value="Moutain clothes(winter weather)">
+              Moutain clothes(winter weather)
+            </option>
+            <option value="High Mountain clothes">High Mountain clothes</option>
+            <option value="Long Route">Long Route</option>
+          </select>
+          <label>Footwear</label>
+          <select
+            name="footwear"
+            value={route.inventary.footwear}
+            onChange={handleInventary}
+            required
+          >
+            <option value="Light boots or trekking slippers">
+              Light boots or trekking slippers
+            </option>
+            <option value="Moutain boots">Moutain boots</option>
+            <option value="High Mountain boots">High Mountain boots</option>
+          </select>
           <label>tips</label>
           <input
             type="text"
@@ -110,7 +165,7 @@ const EditRoute = () => {
             value={route.tips}
             onChange={handleChange}
           />
-          
+
           <button type="submit">Update route</button>
         </form>
       )}

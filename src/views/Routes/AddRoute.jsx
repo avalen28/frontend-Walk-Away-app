@@ -51,16 +51,13 @@ const AddRoute = () => {
   };
 
   const handleInventary = (e) => {
-
-    console.log(e.target.name)
-    console.log(e.target.value);
      setNewRoute((prev) => {
        return {
          ...prev,
          inventary: { ...prev.inventary, [e.target.name]: e.target.value }
        };
      });
-    console.log(newRoute)
+
   };
 
   return (
@@ -144,7 +141,12 @@ const AddRoute = () => {
           <option value="Two days meal">Two days meal</option>
         </select>
         <label>Sportswear</label>
-        <select name="sportswear" onChange={handleInventary} required>
+        <select
+          name="sportswear"
+          value={newRoute.inventary.sportswear}
+          onChange={handleInventary}
+          required
+        >
           <option value="Trekking clothes (spring weather)">
             Trekking clothes (spring weather)
           </option>
@@ -155,7 +157,12 @@ const AddRoute = () => {
           <option value="Long Route">Long Route</option>
         </select>
         <label>Footwear</label>
-        <select name="footwear" onChange={handleInventary} required>
+        <select
+          name="footwear"
+          value={newRoute.inventary.footwear}
+          onChange={handleInventary}
+          required
+        >
           <option value="Light boots or trekking slippers">
             Light boots or trekking slippers
           </option>
