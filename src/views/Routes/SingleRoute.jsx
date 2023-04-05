@@ -7,7 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 import RouteCard from "../../components/RouteCard";
 
 const SingleRoute = () => {
-  const { user } = useAuth(); //esto comprueba si hay usuario
+  const { user } = useAuth();
   const params = useParams();
   const Navigate = useNavigate();
   const [route, setRoute] = useState(null);
@@ -63,7 +63,7 @@ const SingleRoute = () => {
           <p>{`Estimated time:${route.level}h.`}</p>
           <p>{route.description}</p>
           <p>You will need:</p>
-          <ul>
+          <ul className="inventary-route">
             <li>Drinks: {route.inventary.drinks}</li>
             <li>Food: {route.inventary.food}</li>
             <li>Sportswear: {route.inventary.sportswear}</li>

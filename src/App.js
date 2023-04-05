@@ -89,10 +89,31 @@ function App() {
           }
         />
         {/* Inventary routes */}
-        <Route path="/inventary" element={<Inventary />} />
-        <Route path="/inventary/edit" element={<EditInventary />} />
+        <Route
+          path="/inventary"
+          element={
+            <IsPrivate>
+              <Inventary />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/inventary/edit"
+          element={
+            <IsPrivate>
+              <EditInventary />
+            </IsPrivate>
+          }
+        />
         {/* SavedRoutes routes */}
-        <Route path="/saved-routes/all" element={<AllSavedRoutes/>}/>
+        <Route
+          path="/saved-routes/all"
+          element={
+            <IsPrivate>
+              <AllSavedRoutes />
+            </IsPrivate>
+          }
+        />
         {/* Auth routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

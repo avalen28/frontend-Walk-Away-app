@@ -29,14 +29,25 @@ const formatRouteBody = (routeToFormat) => {
 //required in the Model inventary - backened
 const formatBody = (inventary) => {
   let elemArr;
-  if (inventary.other === "object" && inventary.other.length === 1) {
-    elemArr = ["Nothing more in your inventary"];// check espacios
+  if (typeof inventary.other === "undefined") {
+    console.log("undefined")
+    return false;
   }
+  if (typeof inventary.other === "object") {
+    elemArr = inventary.other
+  }
+
   if (typeof inventary.other === "string") {
-    elemArr = inventary.other.split(",").map((item) => item.trim());
-  } else {
-    elemArr = inventary.other;
+    console.log("string");
+    if (inventary.other.trim() === "" ) {
+      return false
+    } else if (inventary.other.trim() === ",") { 
+      return false;
+    } else {
+       elemArr = inventary.other.split(",").map(elem=>elem.trim())
+    }
   }
+
   const inventaryFormated = {
     ...inventary,
     other: elemArr,

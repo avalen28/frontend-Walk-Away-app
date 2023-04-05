@@ -21,13 +21,13 @@ const Inventary = () => {
     <div>
       {user && <h3>Hello {user.username}, this is your inventary</h3>}
       <h4>Currently you have:</h4>
-      {inventary && inventary.drinks && <p>Drinks</p>}
-      {inventary && inventary.food && <p>Food</p>}
-      {inventary && inventary.sportswear && <p>Sports wear</p>}
-      {inventary && inventary.footwear && <p>Foot wear</p>}
+      {inventary && inventary.drinks && <p>{inventary.drinks}</p>}
+      {inventary && inventary.food && <p>{inventary.food}</p>}
+      {inventary && inventary.sportswear && <p>{inventary.sportswear}</p>}
+      {inventary && inventary.footwear && <p>{inventary.footwear}</p>}
       {inventary && inventary.other && (
         <div>
-          <p>Other items</p>
+          <p>Your personal Items</p>
           <ul>
             {inventary.other.map((item) => (
               <li key={item}>{item}</li>
@@ -35,14 +35,8 @@ const Inventary = () => {
           </ul>
         </div>
       )}
-
-      <h4>You are missing:</h4>
-      {inventary && !inventary.drinks && <p>Drinks</p>}
-      {inventary && !inventary.food && <p>Food</p>}
-      {inventary && !inventary.sportswear && <p>Sports wear</p>}
-          {inventary && !inventary.footwear && <p>Foot wear</p>}
-          <Link to={"/inventary/edit"}>Update your Inventary</Link>
-      </div>
+      <Link to={"/inventary/edit"}>Update your Inventary</Link>
+    </div>
   );
 };
 

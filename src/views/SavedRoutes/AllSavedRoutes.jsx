@@ -32,7 +32,6 @@ const AllSavedRoutes = () => {
 
   useEffect(() => {
     getSavedRoutes();
-    console.log(user);
   }, []);
 
   return (
