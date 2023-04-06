@@ -46,8 +46,10 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="signin-container">
+      <h3>Hello Walker!</h3>
+      <p>Your great adventure starts now!</p>
+      <form onSubmit={handleSubmit} className="signin-form">
         <label>Username</label>
         <input
           required

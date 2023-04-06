@@ -7,15 +7,11 @@ export default function Navbar() {
   const navigate = useNavigate();
   return (
     <div className="navbar-sup">
-      {user && <p>Hello {user.username}</p>}
-
-      {!isLoggedIn && (
-        <div className="navbar-sup-auth">
-          <Link to="/signup">Sign up</Link>
-          <Link to="/login">Login</Link>
-          {isLoggedIn && <button onClick={() => logOutUser()}>Log out</button>}
-        </div>
-      )}
+      <div className="navbar-sup-auth">
+        {!isLoggedIn && <Link to="/signup">Sign up</Link>}
+        {!isLoggedIn && <Link to="/login">Login</Link>}
+      {isLoggedIn && <button onClick={() => logOutUser()}>Log out</button>}
+      </div>
       <div className="navbar-sup-back">
         <button onClick={() => navigate(-1)}>Go back</button>
       </div>

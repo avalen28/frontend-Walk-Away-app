@@ -48,15 +48,29 @@ export default function Login() {
   }, [isLoggedIn])
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <h3>Hello Walker!</h3>
+      <p>Ready for a new adventure?</p>
+      <form onSubmit={handleSubmit} className="login-form">
         <label>Email</label>
-        <input required type="email" name="email" value={user.email} onChange={handleChange} />
+        <input
+          required
+          type="email"
+          name="email"
+          value={user.email}
+          onChange={handleChange}
+        />
         <label>Password</label>
-        <input required type="password" name="password" value={user.password} onChange={handleChange} />
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        <input
+          required
+          type="password"
+          name="password"
+          value={user.password}
+          onChange={handleChange}
+        />
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <button type="submit">Log in </button>
       </form>
     </div>
-  )
+  );
 }
