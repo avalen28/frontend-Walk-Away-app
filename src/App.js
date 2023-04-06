@@ -30,98 +30,101 @@ function App() {
     <div className="App">
       <Toaster />
       <Navbar />
-      <Routes>
-        {/* Routes routes */}
-        <Route path="/routes/all" element={<AllRoutes />} />
-        <Route
-          path="/routes/:routeId"
-          element={
-            <IsPrivate>
-              <SingleRoute />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/routes/add"
-          element={
-            <IsPrivate>
-              <IsAdmin>
-                <AddRoute />
-              </IsAdmin>
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/routes/edit/:routeId"
-          element={
-            <IsPrivate>
-              <IsAdmin>
-                <EditRoute />
-              </IsAdmin>
-            </IsPrivate>
-          }
-        />
-        {/* User routes */}
-        <Route
-          path="/users/all"
-          element={
-            <IsPrivate>
-              <IsAdmin>
-                <AllUsers />
-              </IsAdmin>
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/users/me"
-          element={
-            <IsPrivate>
-              <UserProfile />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/users/edit"
-          element={
-            <IsPrivate>
-              <EditUser />
-            </IsPrivate>
-          }
-        />
-        {/* Inventary routes */}
-        <Route
-          path="/inventary"
-          element={
-            <IsPrivate>
-              <Inventary />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/inventary/edit"
-          element={
-            <IsPrivate>
-              <EditInventary />
-            </IsPrivate>
-          }
-        />
-        {/* SavedRoutes routes */}
-        <Route
-          path="/saved-routes/all"
-          element={
-            <IsPrivate>
-              <AllSavedRoutes />
-            </IsPrivate>
-          }
-        />
-        {/* Auth routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        {/* Miscel routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/error" element={<ErrorPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="App-container">
+        <Routes>
+          {/* Routes routes */}
+          <Route path="/routes/all" element={<AllRoutes />} />
+          <Route
+            path="/routes/:routeId"
+            element={
+              <IsPrivate>
+                <SingleRoute />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/routes/add"
+            element={
+              <IsPrivate>
+                <IsAdmin>
+                  <AddRoute />
+                </IsAdmin>
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/routes/edit/:routeId"
+            element={
+              <IsPrivate>
+                <IsAdmin>
+                  <EditRoute />
+                </IsAdmin>
+              </IsPrivate>
+            }
+          />
+          {/* User routes */}
+          <Route
+            path="/users/all"
+            element={
+              <IsPrivate>
+                <IsAdmin>
+                  <AllUsers />
+                </IsAdmin>
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/users/me"
+            element={
+              <IsPrivate>
+                <UserProfile />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/users/edit"
+            element={
+              <IsPrivate>
+                <EditUser />
+              </IsPrivate>
+            }
+          />
+          {/* Inventary routes */}
+          <Route
+            path="/inventary"
+            element={
+              <IsPrivate>
+                <Inventary />
+              </IsPrivate>
+            }
+          />
+          <Route
+            path="/inventary/edit"
+            element={
+              <IsPrivate>
+                <EditInventary />
+              </IsPrivate>
+            }
+          />
+          {/* SavedRoutes routes */}
+          <Route
+            path="/saved-routes/all"
+            element={
+              <IsPrivate>
+                <AllSavedRoutes />
+              </IsPrivate>
+            }
+          />
+          {/* Auth routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          {/* Miscel routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/error" element={<ErrorPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+
       <NavBarInf />
     </div>
   );

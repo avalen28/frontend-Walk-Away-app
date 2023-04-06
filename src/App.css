@@ -1,3 +1,57 @@
+/*Hello! here you can see blocks of styles and find it 
+by his Tag name. I hope this index helps you!!
+
+App (APP ENVIROMENT)
+Navbar sup.
+App-container
+Navbar inf.
+
+
+*/
+
 .active {
   color: green;
+}
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.App-container {
+  width: 100 vw;
+  height: 84%;
+  background-color: rgb(210, 209, 209);
+}
+/* Navbar sup. */
+.navbar-sup {
+  display: flex;
+  width: 100%;
+  height: 8%;
+  justify-content: space-between;
+  border: 1px solid gray;
+}
+.navbar-sup-auth {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+}
+.navbar-sup-back {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+/* Navbar inf. */
+.navbar-inf {
+  display: flex;
+  width: 100%;
+  height: 8%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  border: 1px solid gray;
 }

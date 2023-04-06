@@ -1,34 +1,24 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Navbar() {
   const { user, isLoggedIn, logOutUser } = useAuth();
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="navbar-sup">
       {user && <p>Hello {user.username}</p>}
-      <ul>
-       
-        {!isLoggedIn && (
-          <div>
-            <li>
-              <NavLink to="/signup">Sign up</NavLink>
-            </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-          </div>
-        )}
-        {isLoggedIn && (
-          <li>
-            <button onClick={() => logOutUser()}>Log out</button>
-          </li>
-        )}
-        <li>
-          <button onClick={() => navigate(-1)}>Go back</button>
-        </li>
-      </ul>
+
+      {!isLoggedIn && (
+        <div className="navbar-sup-auth">
+          <Link to="/signup">Sign up</Link>
+          <Link to="/login">Login</Link>
+          {isLoggedIn && <button onClick={() => logOutUser()}>Log out</button>}
+        </div>
+      )}
+      <div className="navbar-sup-back">
+        <button onClick={() => navigate(-1)}>Go back</button>
+      </div>
     </div>
   );
 }

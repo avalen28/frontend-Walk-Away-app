@@ -1,24 +1,15 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+import { NavLink} from "react-router-dom";
 
 const NavBarInf = () => {
-  const { user, isLoggedIn, logOutUser } = useAuth();
-  const navigate = useNavigate();
+
+
   return (
-    <div>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <NavLink to="/routes/all">Routes</NavLink>
-        <li>
-          <NavLink to="/users/me">Profile</NavLink>
-        </li>
-        <li>
-          <NavLink to="/inventary">Inventary</NavLink>
-        </li>
-      </ul>
+    <div className="navbar-inf">
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/routes/all">Routes</NavLink>
+      <NavLink to="/users/me">Profile</NavLink>
+      <NavLink to="/inventary">Inventary</NavLink>
     </div>
   );
 };
