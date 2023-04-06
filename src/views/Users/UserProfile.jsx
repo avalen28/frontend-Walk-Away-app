@@ -17,7 +17,7 @@ const UserProfile = () => {
       getUser();
       // eslint-disable-next-line
     },[])
-    return <div>
+    return <div className="user-container">
         {user && <UserCard user={user} key={user._id}/>}
   </div>;
 };

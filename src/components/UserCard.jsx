@@ -23,20 +23,27 @@ const UserCard = ({ user }) => {
   return (
     <div className="user-card">
       <img src={user.img} alt="user avatar" style={{ width: "100px" }} />
+      <p>User name</p>
       <h3>{user.username}</h3>
+      <p>email</p>
       <h4>{user.email}</h4>
-      <p>{user.level}</p>
-      <p>{user.experiencePoints}</p>
-      <Link to ={"/saved-routes/all"} >See your saved routes</Link>
-      <Link to={"/users/edit"}>Edit your profile</Link>
-      <button onClick={() => setDeleteRoute(true)}>Delete profile</button>
-      {deleteRoute && (
-        <div>
-          <h4>Do you want to delete this user?</h4>
-          <button onClick={handleDelete}>Yes</button>
-          <button onClick={() => setDeleteRoute(false)}>No</button>
-        </div>
-      )}
+      <p>Your level</p>
+      <p>level {user.level}</p>
+      <p>Experience points</p>
+      <p>{user.experiencePoints} xp</p>
+      <div>
+        {" "}
+        <Link to={"/saved-routes/all"}>See your saved routes</Link>
+        <Link to={"/users/edit"}>Edit your profile</Link>
+        <button onClick={() => setDeleteRoute(true)}>Delete profile</button>
+      </div>
+        {deleteRoute && (
+          <div>
+            <h4>Do you want to delete this user?</h4>
+            <button onClick={handleDelete}>Yes</button>
+            <button onClick={() => setDeleteRoute(false)}>No</button>
+          </div>
+        )}
     </div>
   );
 };

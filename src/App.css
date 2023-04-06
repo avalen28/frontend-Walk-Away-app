@@ -7,6 +7,7 @@ App-container
 Navbar inf.
 Sign Up
 Log In
+User - profile
 
 */
 
@@ -20,9 +21,12 @@ Log In
   flex-direction: column;
 }
 .App-container {
-  width: 100 vw;
+  width: 100%;
   height: 84%;
   background-color: rgb(210, 209, 209);
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
 }
 /* Navbar sup. */
 .navbar-sup {
@@ -71,4 +75,22 @@ Log In
   display: flex;
   flex-direction: column;
   width: 90%;
+}
+
+/* User - profile */
+.user-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  border: 1px solid black;
+  background-color: antiquewhite;
 }
