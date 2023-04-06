@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import routesService from "../../services/routeService";
 // import formatRouteBody from "../../utils";
 import { formatRouteBody } from "../../utils";
+import toast from "react-hot-toast";
 
 const EditRoute = () => {
   const { routeId } = useParams();
@@ -33,12 +34,18 @@ const EditRoute = () => {
 
   const handleAddToDB = async () => {
     const routeCorrectFormatToDB = formatRouteBody(route);
-    try {
-      await routesService.editRoute(routeId, routeCorrectFormatToDB);
-      Navigate(`/routes/${routeId}`);
-    } catch (error) {
-      console.error(error);
+    if (routeCorrectFormatToDB) {
+       try {
+         await routesService.editRoute(routeId, routeCorrectFormatToDB);
+         toast.success("route updated")
+         Navigate(`/routes/${routeId}`);
+       } catch (error) {
+         console.error(error);
+       }
+    } else {
+      toast.error("please check your form fields");
     }
+     
   };
   const handleUpdate = async (e) => {
     e.preventDefault();

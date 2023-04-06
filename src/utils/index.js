@@ -1,11 +1,10 @@
 //This function is used to uptade the correct format
 //required in the Model Route - backened
 const formatRouteBody = (routeToFormat) => {
+  console.log(routeToFormat);
   let inventaryArr;
-  if (typeof routeToFormat.inventary === "string") {
-    inventaryArr = routeToFormat.inventary
-      .split(",")
-      .map((item) => item.trim());
+  if (typeof routeToFormat.inventary !== "object") {
+   return false
   } else {
     inventaryArr = routeToFormat.inventary;
   }
