@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import routesService from "../../services/routeService";
 import savedRoutesService from "../../services/savedRoutesService";
+import inventaryService from "../../services/inventaryService";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import RouteCard from "../../components/RouteCard";
@@ -11,6 +12,7 @@ const SingleRoute = () => {
   const params = useParams();
   const Navigate = useNavigate();
   const [route, setRoute] = useState(null);
+  const [userInventary, setUserInventary] = useState(null);
   const [savedButton, setSavedButton] = useState(false);
   const [deleteRoute, setDeleteRoute] = useState(false);
   const getRoute = async () => {
@@ -25,6 +27,14 @@ const SingleRoute = () => {
       if (!responseSavedRoute) {
         setSavedButton(true);
       }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getInventary = async () => {
+    try {
+      const inventaryFromDB = await inventaryService.getInventary(user._id);
+      setUserInventary(inventaryFromDB);
     } catch (error) {
       console.error(error);
     }
@@ -52,11 +62,12 @@ const SingleRoute = () => {
   };
   useEffect(() => {
     getRoute();
+    getInventary();
     // eslint-disable-next-line
   }, []);
   return (
     <div>
-      {route && (
+      {route && userInventary && (
         <div className="single-route-card" key={route._id}>
           <RouteCard route={route} />
           <p>{`${route.distance}km`}</p>
@@ -64,12 +75,69 @@ const SingleRoute = () => {
           <p>{route.description}</p>
           <p>You will need:</p>
           <ul className="inventary-route">
-            <li>Drinks: {route.inventary.drinks}</li>
-            <li>Food: {route.inventary.food}</li>
-            <li>Sportswear: {route.inventary.sportswear}</li>
-            <li>Footwear: {route.inventary.footwear}</li>
+            <li
+              style={{
+                color:
+                  route.inventary.drinks === userInventary.drinks
+                    ? "green"
+                    : "red",
+              }}
+            >
+              Drinks: {route.inventary.drinks}{" "}
+              {route.inventary.drinks === userInventary.drinks
+                ? "Present in your inventary"
+                : "Not present in your inventary"}
+            </li>
+            <li
+              style={{
+                color:
+                  route.inventary.food === userInventary.food ? "green" : "red",
+              }}
+            >
+              Food: {route.inventary.food}{" "}
+              {route.inventary.food === userInventary.food
+                ? "Present in your inventary"
+                : "Not present in your inventary"}
+            </li>
+            <li
+              style={{
+                color:
+                  route.inventary.sportswear === userInventary.sportswear
+                    ? "green"
+                    : "red",
+              }}
+            >
+              Sportswear: {route.inventary.sportswear}{" "}
+              {route.inventary.sportswear === userInventary.sportswear
+                ? "Present in your inventary"
+                : "Not present in your inventary"}
+            </li>
+            <li
+              style={{
+                color:
+                  route.inventary.footwear === userInventary.footwear
+                    ? "green"
+                    : "red",
+              }}
+            >
+              Footwear: {route.inventary.footwear}{" "}
+              {route.inventary.footwear === userInventary.footwear
+                ? "Present in your inventary"
+                : "Not present in your inventary"}
+            </li>
           </ul>
           <p>{route.tips}</p>
+          {userInventary.other.length > 0 ? (
+            <div>
+              <p>your personal items</p>
+              <ul>
+                {userInventary.other.map(elem => <li key={elem}>{elem}</li>)}
+              </ul>
+            </div>
+            
+          ):"Your Personal Items are empty"}
+        
+         
           {savedButton && (
             <button onClick={handleSaveRoute}>Save this route</button>
           )}
