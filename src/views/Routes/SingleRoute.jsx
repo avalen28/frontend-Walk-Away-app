@@ -135,7 +135,7 @@ const SingleRoute = () => {
               </ul>
             </div>
             
-          ):"Your Personal Items are empty"}
+          ):""}
         
          
           {savedButton && (

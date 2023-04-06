@@ -30,21 +30,20 @@ const formatRouteBody = (routeToFormat) => {
 const formatBody = (inventary) => {
   let elemArr;
   if (typeof inventary.other === "undefined") {
-    console.log("undefined")
+    console.log("undefined");
     return false;
   }
   if (typeof inventary.other === "object") {
-    elemArr = inventary.other
+    elemArr = inventary.other;
   }
 
   if (typeof inventary.other === "string") {
-    console.log("string");
-    if (inventary.other.trim() === "" ) {
-      return false
-    } else if (inventary.other.trim() === ",") { 
-      return false;
-    } else {
-       elemArr = inventary.other.split(",").map(elem=>elem.trim())
+    if (inventary.other.trim() !== "" && inventary.other.trim() === ",") {
+      elemArr = inventary.other.split(",").map((elem) => elem.trim());
+    } else if (inventary.other.trim() === "") {
+      elemArr = ["Empty"];
+    } else if (inventary.other.trim() === ",") {
+      elemArr = ["Empty"];
     }
   }
 
