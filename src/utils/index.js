@@ -38,7 +38,7 @@ const formatBody = (inventary) => {
   }
 
   if (typeof inventary.other === "string") {
-    if (inventary.other.trim() !== "" && inventary.other.trim() === ",") {
+    if (inventary.other.trim() !== "" && inventary.other.trim() !== ",") {
       elemArr = inventary.other.split(",").map((elem) => elem.trim());
     } else if (inventary.other.trim() === "") {
       elemArr = ["Empty"];
@@ -46,7 +46,6 @@ const formatBody = (inventary) => {
       elemArr = ["Empty"];
     }
   }
-
   const inventaryFormated = {
     ...inventary,
     other: elemArr,
