@@ -10,25 +10,18 @@ export default function Navbar() {
   return (
     <div className="navbar-sup">
       <div className="navbar-sup-auth">
-        {!isLoggedIn && (
-          <Link to="/signup">
-            <FontAwesomeIcon icon={faUserPlus} />
-          </Link>
-        )}
-        {!isLoggedIn && (
-          <Link to="/login">
-            <FontAwesomeIcon icon={faArrowRightToBracket} />
-          </Link>
-        )}
         {isLoggedIn && (
           <button onClick={() => logOutUser()}>
-            <FontAwesomeIcon icon={faArrowRightFromBracket} />
+            <FontAwesomeIcon
+              icon={faArrowRightFromBracket}
+              className="navbar-icon"
+            />
           </button>
         )}
       </div>
       <div className="navbar-sup-back">
         <button onClick={() => navigate(-1)}>
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon icon={faArrowLeft} className="navbar-icon" />
         </button>
       </div>
     </div>

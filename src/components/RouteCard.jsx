@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandFist,faStar } from "@fortawesome/free-solid-svg-icons";
+import { faTrophy,faChartSimple } from "@fortawesome/free-solid-svg-icons";
 
 const RouteCard = ({route}) => {
     return (
@@ -11,10 +11,10 @@ const RouteCard = ({route}) => {
         </Link>
         <div className="route-poins">
           <p>
-            <FontAwesomeIcon icon={faStar} /> {route.level}
+            <FontAwesomeIcon icon={faChartSimple} /> {route.level}
           </p>
           <p>
-            <FontAwesomeIcon icon={faHandFist} /> 100 xp
+            <FontAwesomeIcon icon={faTrophy} /> 100 xp
           </p>
         </div>
       </div>

@@ -19,23 +19,25 @@ const Inventary = () => {
   }, []);
   return (
     <div>
-      {user &&inventary && <h3>Hello {user.username}, this is your inventary</h3>}
-      <h4>Currently you have:</h4>
-     <p>{inventary.drinks}</p>
-      <p>{inventary.food}</p>
-    <p>{inventary.sportswear}</p>
-   <p>{inventary.footwear}</p>
-    
-        <div>
-          <p>Your personal Items</p>
-          <ul>
-            {inventary.other.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-     
-      <Link to={"/inventary/edit"}>Update your Inventary</Link>
+      {user && inventary && (
+        <>
+          <h3>Hello {user.username}, this is your inventary</h3>
+          <h4>Currently you have:</h4>
+          <p>{inventary.drinks}</p>
+          <p>{inventary.food}</p>
+          <p>{inventary.sportswear}</p>
+          <p>{inventary.footwear}</p>
+          <div>
+            <p>Your personal Items</p>
+            <ul>
+              {inventary.other.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <Link to={"/inventary/edit"}>Update your Inventary</Link>
+        </>
+      )}
     </div>
   );
 };

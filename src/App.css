@@ -13,9 +13,7 @@ User - saved-routes
 
 */
 /*Miscel.*/
-.active {
-  color: green;
-}
+
 .App {
   height: 100vh;
   width: 100vw;
@@ -68,15 +66,58 @@ button {
 .navbar-inf {
   display: flex;
   width: 100%;
-  height: 8%;
+  height: 80px;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
   border: 1px solid gray;
+  font-size: 25px;
+  gap: 50px;
 }
-.navbar-home {
+.navbar-inf a {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-icon {
+  width: 37px;
+  font-size: 37px;
 }
 
+/* Home */
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-title {
+  height: 30%;
+}
+.home-intro {
+  height: 70%;
+}
+.auth-links {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.auth-links a {
+  height: 50px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: grey;
+  color: antiquewhite;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+}
 /* Sign Up / Log In */
 .signin-container,
 .login-container {
@@ -156,10 +197,10 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.saved-routes-container {
-  width: 100%;
   text-align: center;
+}
+.saved-routes-container h3 {
+  margin-bottom: 5px;
 }
 .route-card-saved {
   width: 95%;
