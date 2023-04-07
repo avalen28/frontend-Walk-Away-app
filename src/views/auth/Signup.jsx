@@ -47,41 +47,54 @@ export default function Signup() {
 
   return (
     <div className="signin-container">
-      <h3>Hello Walker!</h3>
-      <p>Your great adventure starts now!</p>
-      <form onSubmit={handleSubmit} className="signin-form">
-        <label>Username</label>
-        <input
-          required
-          type="text"
-          name="username"
-          value={user.username}
-          onChange={handleChange}
-        />
-        <label>Email</label>
-        <input
-          required
-          type="email"
-          name="email"
-          value={user.email}
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          required
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label>Repeat the password</label>
-        <input
-          required
-          type="password"
-          name="passwordControl"
-          value={passwordControl}
-          onChange={(e) => setPasswordControl(e.target.value)}
-        />
+      <div className="signin-titles block">
+        <h3>Hello Walker!</h3>
+        <p>Your great adventure starts now!</p>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="signin-form block transparent-card-background"
+      >
+        <div>
+          <label>Username</label>
+          <input
+            required
+            type="text"
+            name="username"
+            value={user.username}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Email</label>
+          <input
+            required
+            type="email"
+            name="email"
+            value={user.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            required
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Repeat the password</label>
+          <input
+            required
+            type="password"
+            name="passwordControl"
+            value={passwordControl}
+            onChange={(e) => setPasswordControl(e.target.value)}
+          />
+        </div>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <button type="submit">Register</button>
       </form>

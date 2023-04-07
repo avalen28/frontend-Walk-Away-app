@@ -200,11 +200,19 @@ input {
   margin-top: 50px;
 }
 
-.login-titles h3 {
+.signin-titles {
+  align-items: center;
+  justify-content: end;
+  margin-top: 30px;
+}
+
+.login-titles h3,
+.signin-titles h3 {
   font-size: 30px;
 }
 
-.login-titles p {
+.login-titles p,
+.signin-titles p {
   font-size: 20px;
   font-style: italic;
 }
@@ -213,13 +221,15 @@ input {
   height: 60%;
 }
 
-.login-form div {
+.login-form div,
+.signin-form div {
   display: flex;
   flex-direction: column;
 }
 
 .login-titles,
-.login-container form {
+.login-container form,
+.signin-form {
   gap: 20px;
 }
 
@@ -227,12 +237,19 @@ input {
   margin-bottom: 20px;
 }
 
-.login-form button {
-  margin-top: 30px;
+.login-form button,
+.signin-form button {
+  margin-top: 20px;
   background-color: var(--green);
   padding: 10px;
   border-radius: 10px;
+  color: #f9f7f7;
   font-size: 15px;
+}
+
+.signin-form {
+  margin-top: 20px;
+  height: 70%;
 }
 
 /* User - profile */
