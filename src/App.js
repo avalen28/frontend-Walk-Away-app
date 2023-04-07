@@ -31,6 +31,7 @@ function App() {
       <Toaster />
       <Navbar />
       <div className="App-container">
+        <img src="./images/portada.jpeg" alt="app-background" className="app-background" />
         <Routes>
           {/* Routes routes */}
           <Route path="/routes/all" element={<AllRoutes />} />

@@ -12,8 +12,18 @@ User - edit
 User - saved-routes
 
 */
-/*Miscel.*/
 
+/*Common*/
+:root {
+  --dark-gray: #5a6574ff;
+  --light-blue: #f1f6fcff;
+  --light-gray: #9ea2a8ff;
+  --gray: #7e7b74ff;
+  --green: #77763eff;
+}
+* {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 .App {
   height: 100vh;
   width: 100vw;
@@ -23,22 +33,38 @@ User - saved-routes
 .App-container {
   width: 100%;
   height: 84%;
-  background-color: rgb(210, 209, 209);
   display: flex;
   flex-direction: column;
   padding: 0px 5px;
 }
-button {
+.app-background {
+  position: fixed;
+  width: 830px;
+  left: -210px;
+  z-index: -1;
+  opacity: 60%;
+}
+button,
+input {
   background: none;
   border: none;
+}
+input {
+  border-bottom: 2px solid black;
+  padding: 5px;
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 /* Navbar sup. */
 .navbar-sup {
   display: flex;
   width: 100%;
-  height: 8%;
   justify-content: space-between;
-  border: 1px solid gray;
+  background-color: var(--light-blue);
+  height: 70px;
 }
 .navbar-sup-auth {
   width: 50%;
@@ -66,11 +92,11 @@ button {
 .navbar-inf {
   display: flex;
   width: 100%;
-  height: 80px;
+  height: 70px;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
-  border: 1px solid gray;
+  background-color: var(--light-blue);
   font-size: 25px;
   gap: 50px;
 }
@@ -132,6 +158,56 @@ button {
   display: flex;
   flex-direction: column;
   width: 90%;
+}
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  gap: 50px;
+}
+
+.login-titles {
+  align-items: center;
+  justify-content: end;
+  margin-top: 50px;
+}
+
+.login-titles h3 {
+  font-size: 30px;
+}
+
+.login-titles p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.login-container form {
+  height: 60%;
+  background-color: rgba(241, 246, 252, 0.748);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.login-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-titles,
+.login-container form {
+  gap: 20px;
+}
+
+.email-input {
+  margin-bottom: 20px;
+}
+
+.login-form button {
+  margin-top: 30px;
+  background-color: var(--green);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
 }
 
 /* User - profile */

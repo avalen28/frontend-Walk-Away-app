@@ -10,11 +10,19 @@ export default function Home() {
       <div className="home-intro">
         {isLoggedIn && <h3>Hello {user.username}</h3>}
 
-        <p>Your adventure starts now!</p>
-        <div className="auth-links">
-          <NavLink to={"/login"}>Log in</NavLink>
-          <NavLink to={"/signup"}>Sign up</NavLink>
-        </div>
+        {!isLoggedIn ? (
+          <>
+            <p>Your adventure starts now!</p>
+            <div className="auth-links">
+              <NavLink to={"/login"}>Log in</NavLink>
+              <NavLink to={"/signup"}>Sign up</NavLink>
+            </div>
+          </>
+        ) : (
+          <div>
+            <input type="text" placeholder="Search your next adventure" />
+          </div>
+        )}
       </div>
     </div>
   );
