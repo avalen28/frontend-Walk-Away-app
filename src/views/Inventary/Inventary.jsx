@@ -19,13 +19,13 @@ const Inventary = () => {
   }, []);
   return (
     <div>
-      {user && <h3>Hello {user.username}, this is your inventary</h3>}
+      {user &&inventary && <h3>Hello {user.username}, this is your inventary</h3>}
       <h4>Currently you have:</h4>
-      {inventary && inventary.drinks && <p>{inventary.drinks}</p>}
-      {inventary && inventary.food && <p>{inventary.food}</p>}
-      {inventary && inventary.sportswear && <p>{inventary.sportswear}</p>}
-      {inventary && inventary.footwear && <p>{inventary.footwear}</p>}
-      {inventary && inventary.other && (
+     <p>{inventary.drinks}</p>
+      <p>{inventary.food}</p>
+    <p>{inventary.sportswear}</p>
+   <p>{inventary.footwear}</p>
+    
         <div>
           <p>Your personal Items</p>
           <ul>
@@ -34,7 +34,7 @@ const Inventary = () => {
             ))}
           </ul>
         </div>
-      )}
+     
       <Link to={"/inventary/edit"}>Update your Inventary</Link>
     </div>
   );

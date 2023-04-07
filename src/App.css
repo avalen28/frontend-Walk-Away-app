@@ -44,11 +44,19 @@ User - profile
   gap: 20px;
   padding-left: 20px;
 }
+.navbar-sup-auth button {
+  background: none;
+  border: none;
+}
 .navbar-sup-back {
   width: 50%;
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
+}
+.navbar-sup-back button {
+  background: none;
+  border: none;
 }
 /* Navbar inf. */
 .navbar-inf {
@@ -59,6 +67,8 @@ User - profile
   align-items: center;
   padding: 0px 20px;
   border: 1px solid gray;
+}
+.navbar-home {
 }
 
 /* Sign Up / Log In */

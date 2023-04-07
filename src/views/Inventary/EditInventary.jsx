@@ -47,7 +47,7 @@ const EditInventary = () => {
     handleAddToDB();
   };
   return (
-    <div>
+    <div className="edit-inventary-container">
       {inventary && (
         <form onSubmit={handleSubmit}>
           <div className="edit-drinks">
