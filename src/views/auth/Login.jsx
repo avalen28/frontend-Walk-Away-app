@@ -53,7 +53,7 @@ export default function Login() {
         <h3>Hello Walker!</h3>
         <p>Ready for a new adventure?</p>
       </div>
-      <form onSubmit={handleSubmit} className="login-form block">
+      <form onSubmit={handleSubmit} className="login-form block transparent-card-background">
         <div>
           <label>Email</label>
           <input

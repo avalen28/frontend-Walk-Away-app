@@ -58,6 +58,11 @@ input {
   flex-direction: column;
   justify-content: center;
 }
+.transparent-card-background {
+  background-color: rgba(241, 246, 252, 0.748);
+  border-radius: 10px;
+  padding: 30px;
+}
 /* Navbar sup. */
 .navbar-sup {
   display: flex;
@@ -120,30 +125,53 @@ input {
   justify-content: center;
   align-items: center;
 }
+
 .home-title {
   height: 30%;
+  align-items: center;
+  gap: 10px;
 }
+
 .home-intro {
   height: 70%;
-}
-.auth-links {
-  height: 50%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.home-title h1 {
+  font-size: 30px;
+}
+
+.home-title p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.auth-links {
+  height: 50%;
   gap: 30px;
 }
+
 .auth-links a {
-  height: 50px;
-  border: 1px solid grey;
-  border-radius: 10px;
-  background-color: grey;
-  color: antiquewhite;
   width: 100%;
+  height: 50px;
+  border-radius: 10px;
   text-align: center;
   padding-top: 15px;
 }
+
+.auth-links a:first-child {
+  background-color: #cccfd4;
+  color: #4c4b4b;
+}
+
+.auth-links a:nth-child(2) {
+  background-color: var(--green);
+  color: #d9d9d9;
+}
+
 /* Sign Up / Log In */
 .signin-container,
 .login-container {
@@ -183,9 +211,6 @@ input {
 
 .login-container form {
   height: 60%;
-  background-color: rgba(241, 246, 252, 0.748);
-  border-radius: 10px;
-  padding: 30px;
 }
 
 .login-form div {
