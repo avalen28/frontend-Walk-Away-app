@@ -31,7 +31,11 @@ function App() {
       <Toaster />
       <Navbar />
       <div className="App-container">
-        <img src="./images/portada.jpeg" alt="app-background" className="app-background" />
+        <img
+          src="https://thumbs.dreamstime.com/b/aerial-view-lago-antorno-dolomites-lake-mountain-landscape-alps-peak-misurina-cortina-di-ampezzo-italy-reflected-103752677.jpg"
+          alt="app-background"
+          className="app-background"
+        />
         <Routes>
           {/* Routes routes */}
           <Route path="/routes/all" element={<AllRoutes />} />

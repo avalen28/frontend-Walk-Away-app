@@ -255,20 +255,60 @@ form input {
 /* User - profile */
 .user-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 50px;
+  width: 100%;
 }
+
 .user-card {
+  padding: 20px 0;
+  height: 100%;
+  width: 100%;
+}
+
+.user-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.user-card-header a {
+  position: absolute;
+  top: 220px;
+  left: 240px;
+}
+.profile-edit-icon {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 100%;
+  background-color: var(--gray);
+  color: var(--light-blue);
+}
+.user-card img {
+  border-radius: 100%;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+.user-profile-info-container {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+}
+
+.user-profile-info {
+  margin-top: 30px;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 90%;
-  border: 1px solid black;
-  background-color: antiquewhite;
 }
+
+.user-profile-info h3 {
+  font-size: 30px;
+}
+
+.user-profile-info h4 {
+  padding: 5px;
+}
+
 .user-options {
   display: flex;
   flex-direction: column;
