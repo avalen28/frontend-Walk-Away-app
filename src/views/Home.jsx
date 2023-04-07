@@ -9,7 +9,7 @@ export default function Home() {
     <div className="home">
       <div className="home-title block">
         <h1>Walk Away</h1>
-        <p>Your adventure starts now!</p>
+        <p>Your great adventure starts now!</p>
       </div>
       <div className="home-intro">
         {isLoggedIn && <h3>Hello {user.username}</h3>}

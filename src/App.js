@@ -32,7 +32,7 @@ function App() {
       <Navbar />
       <div className="App-container">
         <img
-          src="https://thumbs.dreamstime.com/b/aerial-view-lago-antorno-dolomites-lake-mountain-landscape-alps-peak-misurina-cortina-di-ampezzo-italy-reflected-103752677.jpg"
+          src="https://www.dolomiten.net/it/images/gallery/scoprire-gustare/laghi/lago-antorno/vista-lago-antorno.jpg"
           alt="app-background"
           className="app-background"
         />

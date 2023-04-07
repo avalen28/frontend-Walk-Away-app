@@ -40,7 +40,7 @@ User - saved-routes
 .app-background {
   position: fixed;
   width: 830px;
-  left: -210px;
+  left: -155px;
   z-index: -1;
   opacity: 60%;
 }
