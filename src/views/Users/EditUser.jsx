@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import userService from "../../services/userService";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const EditUser = () => {
   const { user, storeToken, authenticateUser, removeToken } = useAuth();
@@ -36,9 +37,11 @@ const EditUser = () => {
         removeToken();
         storeToken(userFromDB.authToken);
         authenticateUser();
+        toast.success("profile updated!")
         Navigate("/users/me");
       }
     } catch (error) {
+      toast.error("please check your fields")
       console.error(error);
     }
   };
@@ -57,9 +60,9 @@ const EditUser = () => {
   }, [newPassword]);
 
   return (
-    <div>
+    <div className="user-edit-container">
       <h2>Edit your profile</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="user-edit-form">
         <label>Username</label>
         <input
           type="text"

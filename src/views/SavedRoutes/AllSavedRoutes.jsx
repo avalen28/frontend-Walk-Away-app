@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import savedRoutesService from "../../services/savedRoutesService";
 import RouteCard from "../../components/RouteCard";
 import { useAuth } from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const AllSavedRoutes = () => {
   const { user, storeToken, authenticateUser, removeToken } = useAuth();
@@ -18,7 +19,6 @@ const AllSavedRoutes = () => {
   const handleStatus = async (id, status) => {
     try {
       const response = await savedRoutesService.editSavedRoute(id, { status });
-      // if finished, coger de la response del editsavedroute el token, cargarte el previo, etc
       if (status === "finished" && response) {
         removeToken();
         storeToken(response.authToken);
@@ -33,13 +33,15 @@ const AllSavedRoutes = () => {
   useEffect(() => {
     getSavedRoutes();
   }, []);
-
   return (
-    <div>
+    <div className="saved-routes-container">
+      <h4>Saved routes</h4>
       {savedRoutes &&
         savedRoutes.map((savedRoute) => {
           return (
-            <div key={savedRoute._id} className="route-card-saved-all">
+            <div key={savedRoute._id} className="route-card-saved">
+              <h3>{savedRoute.routeId.name}</h3>
+              <div className="route-saved-info">
               <RouteCard route={savedRoute.routeId} />
               {user && user.level < savedRoute.routeId.level ? (
                 <p className="route-card-saved-status-negative">
@@ -48,7 +50,7 @@ const AllSavedRoutes = () => {
               ) : (
                 <div className="route-card-saved-new-status">
                   <p>
-                    Status: {savedRoute.status}
+                    Status: {savedRoute.status} </p>
                     {savedRoute.status === "pending" ? (
                       <button
                         onClick={() => handleStatus(savedRoute._id, "started")}
@@ -79,12 +81,19 @@ const AllSavedRoutes = () => {
                         Repeat route
                       </button>
                     )}
-                  </p>
+            
                 </div>
               )}
+              </div>
             </div>
           );
         })}
+      {savedRoutes && savedRoutes.length < 1 && (
+        <div>
+          <p>No routes saved... </p>
+          <Link to={"/routes/all"}>See all routes</Link>
+        </div>
+      )}
     </div>
   );
 };
