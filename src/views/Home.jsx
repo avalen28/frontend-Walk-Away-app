@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
 export default function Home() {
   const { isLoggedIn, user } = useContext(AuthContext);
   return (
@@ -22,7 +23,8 @@ export default function Home() {
           </>
         ) : (
           <div>
-            <input type="text" placeholder="Search your next adventure" />
+              {/* <input type="text" placeholder="Search your next adventure" />
+              <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
           </div>
         )}
       </div>
