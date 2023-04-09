@@ -65,7 +65,7 @@ export default function Home() {
               type="text"
               name="userSearch"
               value={key}
-              placeholder="Name, distance, km..."
+              placeholder="Name, distance or km"
               onChange={handleKey}
             />
           </div>

@@ -8,11 +8,12 @@ import { formatRouteBody } from "../../utils";
 const AddRoute = () => {
   const defaultRoute = {
     name: "",
-    image: "",
+    image: undefined,
+    routeImage: undefined,
     distance: 0,
     level: 1,
     description: "",
-    estimatedDuration: 0,
+    estimatedDuration: 1,
     inventary: {
       drinks: "1L.",
       food: "Lunch",
@@ -34,7 +35,7 @@ const AddRoute = () => {
   };
 
   const handleAddRoute = async () => {
-    const routeCorrectFormatToDB = formatRouteBody(newRoute);
+    const routeCorrectFormatToDB = formatRouteBody(newRoute, "create");
     try {
       const createdRoute = await routesService.createNewRoute(
         routeCorrectFormatToDB
@@ -78,7 +79,13 @@ const AddRoute = () => {
           name="image"
           value={newRoute.image}
           onChange={handleChange}
-          required
+        />
+        <label>Route map</label>
+        <input
+          type="text"
+          name="routeImage"
+          value={newRoute.routeImage}
+          onChange={handleChange}
         />
         <label>Distance (km)</label>
         <input
@@ -110,6 +117,7 @@ const AddRoute = () => {
         <label>Estimated duration</label>
         <input
           type="number"
+          min={1}
           name="estimatedDuration"
           value={newRoute.estimatedDuration}
           onChange={handleChange}

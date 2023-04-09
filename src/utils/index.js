@@ -1,16 +1,27 @@
 //This function is used to uptade the correct format
 //required in the Model Route - backened
-const formatRouteBody = (routeToFormat) => {
-  console.log(routeToFormat);
+const formatRouteBody = (routeToFormat, typeofCheck) => {
   let inventaryArr;
   if (typeof routeToFormat.inventary !== "object") {
-   return false
+    return false;
   } else {
     inventaryArr = routeToFormat.inventary;
   }
   const distanceNumber = Number(routeToFormat.distance);
   const levelNumber = Number(routeToFormat.level);
   const estimatedNumber = Number(routeToFormat.estimatedDuration);
+
+  if (typeofCheck === "edit") {
+
+    if (typeof routeToFormat.image === "string") {
+      if (routeToFormat.image.trim() === "") {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
   if (routeToFormat.tips.trim() === "") {
     routeToFormat.tips = undefined;
   }

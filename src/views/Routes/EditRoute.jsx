@@ -33,7 +33,7 @@ const EditRoute = () => {
   };
 
   const handleAddToDB = async () => {
-    const routeCorrectFormatToDB = formatRouteBody(route);
+    const routeCorrectFormatToDB = formatRouteBody(route, "edit");
     if (routeCorrectFormatToDB) {
        try {
          await routesService.editRoute(routeId, routeCorrectFormatToDB);
@@ -72,11 +72,18 @@ const EditRoute = () => {
             value={route.name}
             onChange={handleChange}
           />
-          <label>Route img</label>
+          <label>Route picture</label>
           <input
             type="text"
             name="image"
             value={route.image}
+            onChange={handleChange}
+          />
+          <label>Route map</label>
+          <input
+            type="text"
+            name="routeImage"
+            value={route.routeImage}
             onChange={handleChange}
           />
           <label>Distance (km)</label>

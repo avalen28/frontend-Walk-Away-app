@@ -8,6 +8,7 @@ const RouteCard = ({route}) => {
       <div className="route-card-component">
         <Link to={`/routes/${route._id}`} className="img-link">
           <img src={route.image} alt="route view" style={{ width: "100px" }} />
+          <img src={route.routeImage} alt="route view" style={{ width: "100px" }} />
         </Link>
         <div className="route-poins">
           <p>
