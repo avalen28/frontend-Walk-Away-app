@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 import routesService from "../services/routeService";
 import { AuthContext } from "../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChartSimple, faShoePrints,faStopwatch } from "@fortawesome/free-solid-svg-icons";
 import RouteCard from "../components/RouteCard";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { isLoggedIn, user } = useContext(AuthContext);
@@ -78,7 +77,32 @@ export default function Home() {
             <h3>Results</h3>
             <div className="options">
               {searchResults.map((route) => (
-                <RouteCard route={route} key={route._id} />
+                <div key={route._id} className="route-options">
+                  <Link to={`/routes/${route._id}`}>
+                    {" "}
+                    <img src={route.image} alt="picture" />
+                  </Link>
+
+                  <div className="route-info">
+                    <h4>{route.name}</h4>
+                    <div>
+                      <p>
+                        <FontAwesomeIcon icon={faChartSimple} /> {route.level}
+                      </p>
+                      <p>
+                        <FontAwesomeIcon
+                          icon={faShoePrints}
+                          style={{ rotation: "270" }}
+                        />{" "}
+                        {route.distance}km
+                      </p>
+                      <p>
+                        <FontAwesomeIcon icon={faStopwatch} />{" "}
+                        {route.estimatedDuration}hrs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

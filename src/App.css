@@ -6,6 +6,7 @@ Navbar sup.
 App-container
 Navbar inf.
 Home
+view Login & Signup
 Sign Up
 Log In
 User - profile
@@ -131,7 +132,7 @@ form input {
 }
 
 .home-title {
-  height: 35%;
+  height: 25%;
   align-items: center;
   padding-top: 10px;
   justify-content: start;
@@ -152,6 +153,8 @@ form input {
   font-size: 20px;
   font-style: italic;
 }
+
+/* view Login & Signup*/
 .login-signup {
   display: flex;
   height: 100%;
@@ -238,6 +241,28 @@ form input {
   padding-bottom: 5px;
   border-bottom: 1px solid gray;
 }
+.route-options {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.route-options img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+}
+
+.route-info h4 {
+  text-align: center;
+  font-size: inherit;
+  width: 100%;
+  height: auto;
+}
+.route-info div {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*----------------------*/
 .auth-links {
   height: 50%;
   gap: 30px;
