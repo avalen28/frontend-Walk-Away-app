@@ -12,6 +12,7 @@ Log In
 User - profile
 User - edit
 User - saved-routes
+Routes - single
 
 */
 
@@ -263,6 +264,7 @@ form input {
 }
 
 /*----------------------*/
+/* Sign Up / Log In */
 .auth-links {
   height: 50%;
   gap: 30px;
@@ -286,7 +288,6 @@ form input {
   color: #d9d9d9;
 }
 
-/* Sign Up / Log In */
 .signin-container,
 .login-container {
   width: 100%;
@@ -487,11 +488,7 @@ form input {
   height: 100px;
   width: 100%;
 }
-.route-card-component {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-}
+
 .route-poins {
   width: 100%;
   display: flex;
@@ -508,4 +505,60 @@ form input {
   justify-content: flex-start;
   gap: 20px;
   margin-top: 10px;
+}
+
+/*Routes - single */
+.route-container {
+  height: 100%;
+  width: 100%;
+}
+.single-route-card {
+  width: 100%;
+  height: 90%;
+}
+.route-card-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 65%;
+  padding-top: 40px;
+  align-items: center;
+}
+.route-pictures {
+  display: flex;
+  width: 100%;
+  height: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.route-pictures h4 {
+  width: 100%;
+  font-size: 25px;
+  border-bottom: 1px solid gray;
+  text-align: center;
+  word-break: break-all;
+}
+
+.route-picture-img {
+  width: 70%;
+  height: 200px;
+  object-fit: contain;
+}
+.route-map-img {
+  width: 50%;
+  height: 100px;
+  object-fit: contain;
+}
+.route-card-info {
+  height: 10%;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.route-inventary {
+}
+.route-user-options {
 }

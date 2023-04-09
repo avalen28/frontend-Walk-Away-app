@@ -1,10 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import routesService from "../services/routeService";
 import { AuthContext } from "../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faShoePrints,faStopwatch } from "@fortawesome/free-solid-svg-icons";
-import RouteCard from "../components/RouteCard";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -82,7 +80,6 @@ export default function Home() {
                     {" "}
                     <img src={route.image} alt="picture" />
                   </Link>
-
                   <div className="route-info">
                     <h4>{route.name}</h4>
                     <div>
