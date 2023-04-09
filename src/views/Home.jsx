@@ -58,29 +58,31 @@ export default function Home() {
         <h1>Walk Away</h1>
         <p>Your great adventure starts now!</p>
 
-          <div className="search-box">
-            <label>Search by name, distance, km...</label>
-            <div className="query">
-              <input
-                type="text"
-                name="userSearch"
-                value={key}
-                placeholder="Search your next adventure"
-                onChange={handleKey}
-              />
-            </div>
+        <div className="search-box">
+          <label>Search your next adventure</label>
+          <div className="query">
+            <input
+              type="text"
+              name="userSearch"
+              value={key}
+              placeholder="Name, distance, km..."
+              onChange={handleKey}
+            />
           </div>
-
+        </div>
       </div>
       <div className="body">
-
+        {!searchResults && <p>Hola</p>}
+        {searchResults && (
           <div className="search-results">
-            {searchResults &&
-              searchResults.map((route) => (
+            <h3>Results</h3>
+            <div className="options">
+              {searchResults.map((route) => (
                 <RouteCard route={route} key={route._id} />
               ))}
+            </div>
           </div>
-
+        )}
       </div>
     </div>
   );

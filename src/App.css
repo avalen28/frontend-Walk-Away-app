@@ -131,17 +131,18 @@ form input {
 }
 
 .home-title {
-  height: 40%;
+  height: 35%;
   align-items: center;
   padding-top: 10px;
   justify-content: start;
 }
 .body {
   width: 90%;
-  height: 80%;
+  height: 65%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .home-title h1 {
@@ -187,7 +188,7 @@ form input {
   justify-content: space-evenly;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .search-box label {
   border-bottom: 1px solid gray;
@@ -212,10 +213,31 @@ form input {
   background-color: rgb(151 195 234 / 58%);
 }
 .search-results {
+  width: 90%;
+  height: 100%;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-results h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 3px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+}
+.options {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
 }
-
 .auth-links {
   height: 50%;
   gap: 30px;
