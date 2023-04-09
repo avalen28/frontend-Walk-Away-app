@@ -5,6 +5,7 @@ App (APP ENVIROMENT)
 Navbar sup.
 App-container
 Navbar inf.
+Home
 Sign Up
 Log In
 User - profile
@@ -31,19 +32,14 @@ User - saved-routes
   flex-direction: column;
 }
 .App-container {
+  margin-top: 70px;
   width: 100%;
-  height: 84%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   padding: 0px 5px;
 }
-.app-background {
-  position: fixed;
-  width: 830px;
-  left: -155px;
-  z-index: -1;
-  opacity: 60%;
-}
+
 button,
 input {
   background: none;
@@ -65,11 +61,12 @@ form input {
 }
 /* Navbar sup. */
 .navbar-sup {
+  position: fixed;
   display: flex;
   width: 100%;
   justify-content: space-between;
   background-color: var(--light-blue);
-  height: 70px;
+  height: 10%;
 }
 .navbar-sup-auth {
   width: 50%;
@@ -78,6 +75,11 @@ form input {
   align-items: center;
   gap: 20px;
   padding-left: 20px;
+}
+.signup-login {
+  width: 70%;
+  display: flex;
+  gap: 30px;
 }
 .navbar-sup-auth button {
   background: none;
@@ -95,9 +97,11 @@ form input {
 }
 /* Navbar inf. */
 .navbar-inf {
+  position: fixed;
+  bottom: 0;
   display: flex;
   width: 100%;
-  height: 70px;
+  height: 10%;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
@@ -122,19 +126,19 @@ form input {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .home-title {
-  height: 30%;
+  height: 40%;
   align-items: center;
-  gap: 10px;
+  padding-top: 10px;
+  justify-content: start;
 }
-
-.home-intro {
-  height: 70%;
-  width: 75%;
+.body {
+  width: 90%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,10 +147,73 @@ form input {
 .home-title h1 {
   font-size: 30px;
 }
-
 .home-title p {
   font-size: 20px;
   font-style: italic;
+}
+.login-signup {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.login-signup a {
+  width: 80%;
+  height: 45px;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #8080806b;
+}
+.login-button {
+  background-color: #b0c9e6;
+}
+.signup-button {
+  background-color: #77763ecf; /* var green but bit transparent */
+  color: whitesmoke;
+}
+.search-home {
+  background-color: rgba(240, 248, 255, 0.583);
+}
+.mag-glass {
+  margin-left: 10px;
+}
+.search-box {
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.search-box label {
+  border-bottom: 1px solid gray;
+  width: 90%;
+  text-align: center;
+  font-size: 18px;
+}
+.query {
+  width: 80%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.query input {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgb(151 195 234 / 58%);
+}
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .auth-links {
@@ -197,7 +264,6 @@ form input {
 .login-titles {
   align-items: center;
   justify-content: end;
-  margin-top: 50px;
 }
 
 .signin-titles {

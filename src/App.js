@@ -31,11 +31,7 @@ function App() {
       <Toaster />
       <Navbar />
       <div className="App-container">
-        <img
-          src="https://www.dolomiten.net/it/images/gallery/scoprire-gustare/laghi/lago-antorno/vista-lago-antorno.jpg"
-          alt="app-background"
-          className="app-background"
-        />
+       
         <Routes>
           {/* Routes routes */}
           <Route path="/routes/all" element={<AllRoutes />} />
