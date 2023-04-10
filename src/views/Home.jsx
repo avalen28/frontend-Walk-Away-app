@@ -29,7 +29,9 @@ export default function Home() {
         elem.level === keyNum
       );
     });
-    setSearchResults(result);
+    
+      setSearchResults(result);
+
   };
 
   const handleKey = (e) => {
@@ -69,12 +71,13 @@ export default function Home() {
         </div>
       </div>
       <div className="body">
-        {!searchResults && <p>Hola</p>}
+        {!searchResults  && <p>Hola</p>}
         {searchResults && (
           <div className="search-results">
             <h3>Results</h3>
             <div className="options">
-              {searchResults.map((route) => (
+              {searchResults.length === 0 && <p>No results found</p>}
+              {searchResults.length > 0 && searchResults.map((route) => (
                 <div key={route._id} className="route-options">
                   <Link to={`/routes/${route._id}`}>
                     {" "}

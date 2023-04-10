@@ -6,6 +6,10 @@ import inventaryService from "../../services/inventaryService";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import RouteCard from "../../components/RouteCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheck,faX, faHeart, faPen, faTrash
+} from "@fortawesome/free-solid-svg-icons";
 
 const SingleRoute = () => {
   const { user } = useAuth();
@@ -70,67 +74,111 @@ const SingleRoute = () => {
       {route && userInventary && (
         <div className="single-route-card" key={route._id}>
           <RouteCard route={route} />
+
+          <div className="route-user-options">
+            {savedButton && (
+              <button onClick={handleSaveRoute}>
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  className="route-user-options-icon"
+                />
+              </button>
+            )}
+            {user && user.isAdmin && (
+              <Link to={`/routes/edit/${route._id}`}>
+                <FontAwesomeIcon
+                  icon={faPen}
+                  className="route-user-options-icon"
+                />
+              </Link>
+            )}
+            {user && user.isAdmin && (
+              <button onClick={() => setDeleteRoute(true)}>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="route-user-options-icon"
+                />
+              </button>
+            )}
+            {deleteRoute && (
+              <div className="sure-to-delete">
+                <h4>Do you want to delete this route?</h4>
+                <div>
+                  <button className="delete" onClick={handleDelete}>Yes</button>
+                  <button onClick={() => setDeleteRoute(false)}>No</button>
+                </div>
+              </div>
+            )}
+          </div>
           <div className="route-inventary">
-            <p>You will need:</p>
+            <p className="title">You will need</p>
             <ul className="inventary-route">
               <li
                 style={{
                   color:
                     route.inventary.drinks === userInventary.drinks
-                      ? "green"
-                      : "red",
+                      ? "black"
+                      : "lightgray",
                 }}
               >
-                Drinks: {route.inventary.drinks}{" "}
-                {route.inventary.drinks === userInventary.drinks
-                  ? "Present in your inventary"
-                  : "Not present in your inventary"}
+                {route.inventary.drinks} of water{" "}
+                {route.inventary.drinks === userInventary.drinks ? (
+                  <FontAwesomeIcon icon={faCheck} />
+                ) : (
+                  <FontAwesomeIcon icon={faX} />
+                )}
               </li>
               <li
                 style={{
                   color:
                     route.inventary.food === userInventary.food
-                      ? "green"
-                      : "red",
+                      ? "black"
+                      : "lightgray",
                 }}
               >
-                Food: {route.inventary.food}{" "}
-                {route.inventary.food === userInventary.food
-                  ? "Present in your inventary"
-                  : "Not present in your inventary"}
+                {route.inventary.food}{" "}
+                {route.inventary.food === userInventary.food ? (
+                  <FontAwesomeIcon icon={faCheck} />
+                ) : (
+                  <FontAwesomeIcon icon={faX} />
+                )}
               </li>
               <li
                 style={{
                   color:
                     route.inventary.sportswear === userInventary.sportswear
-                      ? "green"
-                      : "red",
+                      ? "black"
+                      : "lightgray",
                 }}
               >
-                Sportswear: {route.inventary.sportswear}{" "}
-                {route.inventary.sportswear === userInventary.sportswear
-                  ? "Present in your inventary"
-                  : "Not present in your inventary"}
+                {route.inventary.sportswear}{" "}
+                {route.inventary.sportswear === userInventary.sportswear ? (
+                  <FontAwesomeIcon icon={faCheck} />
+                ) : (
+                  <FontAwesomeIcon icon={faX} />
+                )}
               </li>
               <li
                 style={{
                   color:
                     route.inventary.footwear === userInventary.footwear
-                      ? "green"
-                      : "red",
+                      ? "black"
+                      : "lightgray",
                 }}
               >
-                Footwear: {route.inventary.footwear}{" "}
-                {route.inventary.footwear === userInventary.footwear
-                  ? "Present in your inventary"
-                  : "Not present in your inventary"}
+                {route.inventary.footwear}{" "}
+                {route.inventary.footwear === userInventary.footwear ? (
+                  <FontAwesomeIcon icon={faCheck} />
+                ) : (
+                  <FontAwesomeIcon icon={faX} />
+                )}
               </li>
             </ul>
-            <p>{route.tips}</p>
+            <h3>{route.tips}</h3>
             {userInventary.other.length > 0 ? (
-              <div>
-                <p>your personal items</p>
-                <ul>
+              <div className="personal-items">
+                <p className="personal-items-title">Your personal items</p>
+                <ul className="user-items">
                   {userInventary.other.map((elem) => (
                     <li key={elem}>{elem}</li>
                   ))}
@@ -138,27 +186,6 @@ const SingleRoute = () => {
               </div>
             ) : (
               ""
-            )}
-          </div>
-
-          <div className="route-user-options">
-            {savedButton && (
-              <button onClick={handleSaveRoute}>Save this route</button>
-            )}
-            {user && user.isAdmin && (
-              <Link to={`/routes/edit/${route._id}`}>Edit this route</Link>
-            )}
-            {user && user.isAdmin && (
-              <button onClick={() => setDeleteRoute(true)}>
-                Delete this route
-              </button>
-            )}
-            {deleteRoute && (
-              <div>
-                <h4>Do you want to delete this route?</h4>
-                <button onClick={handleDelete}>Yes</button>
-                <button onClick={() => setDeleteRoute(false)}>No</button>
-              </div>
             )}
           </div>
         </div>
