@@ -76,13 +76,18 @@ const SingleRoute = () => {
           <RouteCard route={route} />
 
           <div className="route-user-options">
-            {savedButton && (
+            {savedButton ? (
               <button onClick={handleSaveRoute}>
                 <FontAwesomeIcon
                   icon={faHeart}
                   className="route-user-options-icon"
                 />
               </button>
+            ) : (
+              <FontAwesomeIcon
+                icon={faHeart}
+                className="route-user-options-icon saved"
+              />
             )}
             {user && user.isAdmin && (
               <Link to={`/routes/edit/${route._id}`}>
@@ -104,7 +109,9 @@ const SingleRoute = () => {
               <div className="sure-to-delete">
                 <h4>Do you want to delete this route?</h4>
                 <div>
-                  <button className="delete" onClick={handleDelete}>Yes</button>
+                  <button className="delete" onClick={handleDelete}>
+                    Yes
+                  </button>
                   <button onClick={() => setDeleteRoute(false)}>No</button>
                 </div>
               </div>

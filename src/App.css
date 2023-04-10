@@ -526,7 +526,6 @@ form input {
 .route-pictures {
   display: flex;
   width: 100%;
-  height: 60%;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -619,7 +618,7 @@ form input {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 
 .route-user-options-icon {
@@ -648,4 +647,7 @@ form input {
 }
 .delete {
   background-color: #d86f6f !important;
+}
+.saved {
+  color: #d86f6f;
 }
