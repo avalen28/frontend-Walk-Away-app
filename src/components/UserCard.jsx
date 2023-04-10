@@ -39,29 +39,42 @@ const UserCard = ({ user }) => {
         <div className="user-profile-info transparent-card-background">
           <h3>{user.username}</h3>
           <h4>{user.email}</h4>
-          <p>
-            <FontAwesomeIcon icon={faChartSimple} /> level {user.level} |{" "}
-            <FontAwesomeIcon icon={faTrophy} /> {user.experiencePoints} xp
-          </p>
+          <div className="user-evolution">
+            <p className="user-evolution-info">
+              <FontAwesomeIcon
+                icon={faChartSimple}
+                className="user-evolution-info"
+              />{" "}
+              level {user.level}
+            </p>
+            <p className="user-evolution-info">
+              <FontAwesomeIcon
+                icon={faTrophy}
+                className="user-evolution-info"
+              />{" "}
+              {user.experiencePoints} xp
+            </p>
+          </div>
           <div className="user-options">
-            <Link to={"/saved-routes/all"}>
-              <FontAwesomeIcon icon={faHeart} />
-              saved routes
-            </Link>
             <button onClick={() => setDeleteRoute(true)}>
-              <FontAwesomeIcon icon={faTrash} />
-              Delete profile
+              <FontAwesomeIcon icon={faTrash} className="user-evolution-info" />
             </button>
           </div>
         </div>
-      </div>
       {deleteRoute && (
-        <div>
+        <div className="sure-to-delete">
           <h4>Do you want to delete this user?</h4>
-          <button onClick={handleDelete}>Yes</button>
-          <button onClick={() => setDeleteRoute(false)}>No</button>
+          <div>
+            <button onClick={handleDelete} className="delete">
+              Yes
+            </button>
+          </div>
+          <div>
+            <button onClick={() => setDeleteRoute(false)}>No</button>
+          </div>
         </div>
       )}
+      </div>
     </div>
   );
 };

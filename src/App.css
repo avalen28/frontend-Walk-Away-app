@@ -59,7 +59,7 @@ form input {
 .transparent-card-background {
   background-color: rgba(241, 246, 252, 0.748);
   border-radius: 10px;
-  padding: 30px;
+  padding: 15px;
 }
 /* Navbar sup. */
 .navbar-sup {
@@ -363,7 +363,6 @@ form input {
 
 /* User - profile */
 .user-container {
-  height: 100%;
   width: 100%;
 }
 
@@ -371,6 +370,9 @@ form input {
   padding: 20px 0;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-card-header {
@@ -399,28 +401,48 @@ form input {
 .user-profile-info-container {
   display: flex;
   justify-content: center;
-  height: 50%;
+  width: 100%;
 }
 
 .user-profile-info {
   margin-top: 30px;
   width: 90%;
+  height: 30vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 20px;
   align-items: center;
 }
 
 .user-profile-info h3 {
   font-size: 30px;
+  width: 70%;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }
 
 .user-profile-info h4 {
   padding: 5px;
 }
-
+.user-evolution {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 48px;
+}
+.user-evolution-info {
+  font-size: 25px;
+}
 .user-options {
   display: flex;
   flex-direction: column;
+  width: 77%;
+  height: 35px;
+  padding-right: 10px;
 }
 
 /* User - edit*/
@@ -458,11 +480,12 @@ form input {
 
 /* User - saved-routes*/
 .saved-routes-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
 .saved-routes-container > h4 {
   width: 90%;
@@ -477,7 +500,6 @@ form input {
   flex-direction: column;
   align-items: center;
   height: 42vh;
-  margin-bottom: 10px;
 }
 .route-card-saved a {
   width: 90%;
@@ -517,7 +539,6 @@ form input {
   display: flex;
   align-items: center;
   border-bottom: 1px solid gray;
-  padding-bottom: 10px;
 }
 .route-saved-state h3 {
   text-align: center;
@@ -532,7 +553,7 @@ form input {
   align-items: center;
 }
 .route-card-saved-new-status p {
-  width: 35%;
+  width: 36%;
 }
 .route-card-saved-new-status div {
   width: 65%;
@@ -695,6 +716,7 @@ form input {
 }
 .delete {
   background-color: #d86f6f !important;
+  margin-bottom: 10px;
 }
 .saved {
   color: #d86f6f;
