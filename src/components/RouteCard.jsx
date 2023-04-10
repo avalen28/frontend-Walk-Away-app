@@ -36,7 +36,7 @@ const RouteCard = ({ route }) => {
               <FontAwesomeIcon icon={faStopwatch} />
             </p>
             <p>
-              <FontAwesomeIcon icon={faTrophy} />
+              <FontAwesomeIcon icon={faTrophy}/>
             </p>
           </div>
 

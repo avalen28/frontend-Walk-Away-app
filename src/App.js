@@ -65,7 +65,7 @@ function App() {
           />
           {/* User routes */}
           <Route
-            path="/users/all"
+            path="/users/all" 
             element={
               <IsPrivate>
                 <IsAdmin>

@@ -6,7 +6,6 @@ import { useAuth } from "../hooks/useAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPen,
-  faHeart,
   faTrash,
   faTrophy,
   faChartSimple,
@@ -22,7 +21,7 @@ const UserCard = ({ user }) => {
       await userService.deleteUser();
       setDeleteRoute(false);
       logOutUser();
-      Navigate("/users/all");
+      Navigate("/");
     } catch (error) {
       console.error(error);
     }
@@ -50,7 +49,7 @@ const UserCard = ({ user }) => {
             <p className="user-evolution-info">
               <FontAwesomeIcon
                 icon={faTrophy}
-                className="user-evolution-info"
+                className="user-evolution-info gold"
               />{" "}
               {user.experiencePoints} xp
             </p>
@@ -61,19 +60,18 @@ const UserCard = ({ user }) => {
             </button>
           </div>
         </div>
-      {deleteRoute && (
-        <div className="sure-to-delete">
-          <h4>Do you want to delete this user?</h4>
-          <div>
-            <button onClick={handleDelete} className="delete">
-              Yes
-            </button>
+        {deleteRoute && (
+          <div className="sure-to-delete">
+            <h4>Do you want to delete this user?</h4>
+            <div>
+              <button onClick={handleDelete} className="delete">
+                Yes
+              </button>
+
+              <button onClick={() => setDeleteRoute(false)}>No</button>
+            </div>
           </div>
-          <div>
-            <button onClick={() => setDeleteRoute(false)}>No</button>
-          </div>
-        </div>
-      )}
+        )}
       </div>
     </div>
   );

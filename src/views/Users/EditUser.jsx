@@ -37,11 +37,11 @@ const EditUser = () => {
         removeToken();
         storeToken(userFromDB.authToken);
         authenticateUser();
-        toast.success("profile updated!")
+        toast.success("Profile updated!")
         Navigate("/users/me");
       }
     } catch (error) {
-      toast.error("please check your fields")
+      toast.error("Please check your fields")
       console.error(error);
     }
   };
@@ -50,6 +50,11 @@ const EditUser = () => {
     e.preventDefault();
     handleSendToDB();
   };
+
+  const handleExit = () => {
+     toast.success("No changes applied");
+     Navigate("/users/me");
+  }
 
   useEffect(() => {
     if (newPassword.password1 !== newPassword.password2) {
@@ -102,7 +107,14 @@ const EditUser = () => {
           onChange={handleChangePassword}
         />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <button type="submit">Edit your profile</button>
+        <div className="user-edit-options">
+          <button type="submit" className="button-edit">
+            Edit it!
+          </button>
+          <button onClick={() => handleExit()} className="button-cancel">
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

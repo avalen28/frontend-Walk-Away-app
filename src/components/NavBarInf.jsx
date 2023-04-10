@@ -29,7 +29,7 @@ const NavBarInf = () => {
           <img
             src="/images/backpack.png"
             alt="navbar-inventary"
-            className="navbar-icon"
+            className="navbar-icon constrast"
           />
         </NavLink>
       )}
