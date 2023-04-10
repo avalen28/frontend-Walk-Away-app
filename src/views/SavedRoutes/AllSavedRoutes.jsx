@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import savedRoutesService from "../../services/savedRoutesService";
-import RouteCard from "../../components/RouteCard";
 import { useAuth } from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import {
+  faChartSimple,
+  faShoePrints,
+  faStopwatch,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AllSavedRoutes = () => {
   const { user, storeToken, authenticateUser, removeToken } = useAuth();
@@ -40,17 +45,37 @@ const AllSavedRoutes = () => {
         savedRoutes.map((savedRoute) => {
           return (
             <div key={savedRoute._id} className="route-card-saved">
-              <h3>{savedRoute.routeId.name}</h3>
+              <Link to={`/routes/${savedRoute.routeId._id}`}>
+                <img src={savedRoute.routeId.image} alt="route picture" />
+              </Link>
               <div className="route-saved-info">
-              <RouteCard route={savedRoute.routeId} />
-              {user && user.level < savedRoute.routeId.level ? (
-                <p className="route-card-saved-status-negative">
-                  {`Sorry but your current level (level ${user.level}) is below the route level`}
-                </p>
-              ) : (
-                <div className="route-card-saved-new-status">
+                <h4>{savedRoute.routeId.name}</h4>
+                <div className="route-saved-stats">
                   <p>
-                    Status: {savedRoute.status} </p>
+                    <FontAwesomeIcon icon={faChartSimple} />{" "}
+                    {savedRoute.routeId.level}
+                  </p>
+                  <p>
+                    <FontAwesomeIcon
+                      icon={faShoePrints}
+                      style={{ rotation: "270" }}
+                    />{" "}
+                    {savedRoute.routeId.distance}km
+                  </p>
+                  <p>
+                    <FontAwesomeIcon icon={faStopwatch} />{" "}
+                    {savedRoute.routeId.estimatedDuration}hrs.
+                  </p>
+                </div>
+              </div>
+              <div className="route-saved-state">
+                {user && user.level < savedRoute.routeId.level ? (
+                  <h3 className="route-card-saved-status-negative">
+                    {`Sorry but your current level (level ${user.level}) is below the route level.`}
+                  </h3>
+                ) : (
+                  <div className="route-card-saved-new-status">
+                    <p>Status: {savedRoute.status} </p>
                     {savedRoute.status === "pending" ? (
                       <button
                         onClick={() => handleStatus(savedRoute._id, "started")}
@@ -70,7 +95,7 @@ const AllSavedRoutes = () => {
                           onClick={() =>
                             handleStatus(savedRoute._id, "pending")
                           }
-                        >
+                        className="cancel-route-button">
                           Cancel route
                         </button>
                       </div>
@@ -81,9 +106,8 @@ const AllSavedRoutes = () => {
                         Repeat route
                       </button>
                     )}
-            
-                </div>
-              )}
+                  </div>
+                )}
               </div>
             </div>
           );
