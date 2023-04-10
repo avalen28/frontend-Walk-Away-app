@@ -9,17 +9,19 @@ import {
   faTrash,
   faTrophy,
   faChartSimple,
+  faMagnifyingGlass,
+  faUserGroup
 } from "@fortawesome/free-solid-svg-icons";
 
 const UserCard = ({ user }) => {
-  const [deleteRoute, setDeleteRoute] = useState(false);
+  const [deleteUser, setDeleteUser] = useState(false);
   const Navigate = useNavigate();
   const { logOutUser } = useAuth();
 
   const handleDelete = async () => {
     try {
       await userService.deleteUser();
-      setDeleteRoute(false);
+      setDeleteUser(false);
       logOutUser();
       Navigate("/");
     } catch (error) {
@@ -55,12 +57,20 @@ const UserCard = ({ user }) => {
             </p>
           </div>
           <div className="user-options">
-            <button onClick={() => setDeleteRoute(true)}>
-              <FontAwesomeIcon icon={faTrash} className="user-evolution-info" />
+            <button onClick={() => setDeleteUser(true)}>
+              <FontAwesomeIcon icon={faTrash} className="user-evolution-info gray" />
             </button>
+            {user && user.isAdmin && (
+              <Link to={`/users/all`}>
+                <FontAwesomeIcon
+                  icon={faUserGroup}
+                  className="route-user-options-icon gray"
+                />
+              </Link>
+            )}
           </div>
         </div>
-        {deleteRoute && (
+        {deleteUser && (
           <div className="sure-to-delete">
             <h4>Do you want to delete this user?</h4>
             <div>
@@ -68,7 +78,7 @@ const UserCard = ({ user }) => {
                 Yes
               </button>
 
-              <button onClick={() => setDeleteRoute(false)}>No</button>
+              <button onClick={() => setDeleteUser(false)}>No</button>
             </div>
           </div>
         )}

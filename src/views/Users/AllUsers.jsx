@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import userService from "../../services/userService";
+import UserCard from "../../components/UserCard";
 
 
 const AllUsers = () => {
@@ -18,13 +19,12 @@ const AllUsers = () => {
     // eslint-disable-next-line
   },[])
   return <div>
-    {users && users.map(users => {
-      return (
-        <div className="user-info" key={users._id}>
-          <img src={users.img} alt="user avatar" style={{ width: "100px" }} />
-          <p>{users.username}</p>
-        </div>
-      )
+    {users && users.map(user => {
+     return (
+       <div className="user-container" key={user._id}>
+         {user && <UserCard user={user} />}
+       </div>
+     );
     })}
   </div>;
 };

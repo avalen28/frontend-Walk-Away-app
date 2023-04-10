@@ -31,7 +31,7 @@ Routes - single
   filter: contrast(50%);
 }
 .gray {
-  color: #434444;
+  color: #434444 !important;
 }
 * {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -449,7 +449,8 @@ form input {
 }
 .user-options {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
   width: 77%;
   height: 35px;
   padding-right: 10px;
