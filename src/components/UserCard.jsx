@@ -9,7 +9,6 @@ import {
   faTrash,
   faTrophy,
   faChartSimple,
-  faMagnifyingGlass,
   faUserGroup
 } from "@fortawesome/free-solid-svg-icons";
 

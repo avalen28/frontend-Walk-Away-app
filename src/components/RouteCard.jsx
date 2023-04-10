@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrophy,
@@ -12,11 +13,15 @@ const RouteCard = ({ route }) => {
     <div className="route-card-component">
       <div className="route-pictures">
         <h4>{route.name}</h4>
+        <Link to={`/routes/${route._id}`}>
+
         <img
           src={route.image}
           alt="default route view"
           className="route-picture-img"
         />
+
+        </Link>
       </div>
       <div className="route-card-info">
         <img
