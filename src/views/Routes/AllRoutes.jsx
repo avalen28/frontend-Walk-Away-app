@@ -4,6 +4,10 @@ import { useAuth } from "../../hooks/useAuth";
 import routesService from "../../services/routeService";
 import { useNavigate } from "react-router-dom";
 import RouteCard from "../../components/RouteCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlus
+} from "@fortawesome/free-solid-svg-icons";
 
 const AllRoutes = () => {
   const { user } = useAuth();
@@ -25,9 +29,13 @@ const AllRoutes = () => {
 
   return (
     <div className="all-routes-container">
-       {user && user.isAdmin && <Link to={"/routes/add"}>Create a new route</Link>}
-      {routes && routes.map(route => <RouteCard route={route} key={route._id} />)}
-    
+      {user && user.isAdmin && (
+        <Link to={"/routes/add"} className="add-route">
+          <FontAwesomeIcon icon={faPlus} className="route-user-options-icon " />
+        </Link>
+      )}
+      {routes &&
+        routes.map((route) => <RouteCard route={route} key={route._id} />)}
     </div>
   );
 };

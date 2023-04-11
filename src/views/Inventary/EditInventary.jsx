@@ -177,7 +177,7 @@ const EditInventary = () => {
               />
             </div>
 
-            <button type="submit">Update your inventary</button>
+            <button type="submit" className="update-inventary">Update your inventary</button>
           </form>
         )}
       </div>

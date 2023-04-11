@@ -16,7 +16,10 @@ const UserCard = ({ user }) => {
   const [deleteUser, setDeleteUser] = useState(false);
   const Navigate = useNavigate();
   const { logOutUser, user: userInSesion } = useAuth();
-
+  console.log(
+    `hola soy ${userInSesion.username} con ${userInSesion._id}`,
+    `y yo soy ${user.username} con ${user._id}`
+  );
 
   const handleDelete = async () => {
     try {
