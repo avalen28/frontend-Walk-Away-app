@@ -14,6 +14,8 @@ User - edit
 User - saved-routes
 Routes - single
 Routes-all
+Inventary
+Inventary edit
 
 */
 
@@ -30,6 +32,9 @@ Routes-all
 }
 .constrast {
   filter: contrast(50%);
+}
+img {
+  border-radius: 10px;
 }
 .gray {
   color: #434444 !important;
@@ -84,6 +89,7 @@ form input {
   justify-content: space-between;
   background-color: var(--light-blue);
   height: 10vh;
+  z-index: 2;
 }
 .navbar-sup-auth {
   width: 50%;
@@ -125,6 +131,7 @@ form input {
   background-color: var(--light-blue);
   font-size: 25px;
   gap: 50px;
+  z-index: index 2;
 }
 .navbar-inf a {
   width: 25%;
@@ -797,7 +804,7 @@ form input {
 .saved {
   color: #d86f6f;
 }
-/*Inventary- edit*/
+/*Inventary*/
 .inventary-container {
   width: 100%;
   margin-top: 20px;
@@ -871,4 +878,87 @@ form input {
 }
 .personal-items ul li {
   width: 40%;
+}
+
+/*Inventary edit*/
+.edit-inventary-container {
+  width: 100%;
+  margin-top: 20px;
+  gap: 15px;
+  align-items: center;
+}
+.inventary-edit-card {
+  width: 100%;
+  gap: 15px;
+  align-items: center;
+}
+.inventary-logo {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  padding-left: 5px;
+}
+.inventary-logo img {
+  width: 49%;
+  height: 152px;
+  object-fit: cover;
+  filter: contrast(0.5);
+}
+
+.inventary-form-edit {
+  width: 90%;
+  padding-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.edit-inventary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-inventary div {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.edit-inventary select {
+  width: 60%;
+  height: 40px;
+  font-size: 19px;
+}
+.edit-inventary div svg {
+  font-size: 40px;
+}
+.edit-inventary div p {
+  font-size: 16px;
+  padding-top: 0px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+}
+.edit-other {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-other label {
+  width: 90%;
+  text-align: center;
+  padding-bottom: 3px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  font-size: medium;
+}
+.edit-other input {
+  width: 100%;
+  height: 50px;
+  background-color: aliceblue;
+  border-bottom: none;
+  text-align: center;
+  border-radius: 10px;
 }

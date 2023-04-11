@@ -33,7 +33,6 @@ const Inventary = () => {
             <img
               src="/images/backpack.png"
               alt="backpack"
-              
             />
             <Link to={"/inventary/edit"}>
               <FontAwesomeIcon
