@@ -24,7 +24,7 @@ const AllRoutes = () => {
   }, []);
 
   return (
-    <div>
+    <div className="all-routes-container">
        {user && user.isAdmin && <Link to={"/routes/add"}>Create a new route</Link>}
       {routes && routes.map(route => <RouteCard route={route} key={route._id} />)}
     

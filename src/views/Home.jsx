@@ -67,43 +67,55 @@ export default function Home() {
               placeholder="Name, distance or km"
               onChange={handleKey}
             />
+            <Link to={"/routes/all"} className="button-see-all">
+              {" "}
+              See all routes
+            </Link>
           </div>
         </div>
       </div>
       <div className="body">
-        {!searchResults  && <p>Hola</p>}
+        {!searchResults && <p>Hola</p>}
         {searchResults && (
           <div className="search-results">
             <h3>Results</h3>
             <div className="options">
               {searchResults.length === 0 && <p>No results found</p>}
-              {searchResults.length > 0 && searchResults.map((route) => (
-                <div key={route._id} className="route-options">
-                  <Link to={`/routes/${route._id}`}>
-                    {" "}
-                    <img src={route.image} alt="picture" />
-                  </Link>
-                  <div className="route-info">
-                    <h4>{route.name}</h4>
-                    <div>
-                      <p>
-                        <FontAwesomeIcon icon={faChartSimple} /> {route.level}
-                      </p>
-                      <p>
-                        <FontAwesomeIcon
-                          icon={faShoePrints}
-                          style={{ rotation: "270" }}
-                        />{" "}
-                        {route.distance}km
-                      </p>
-                      <p>
-                        <FontAwesomeIcon icon={faStopwatch} />{" "}
-                        {route.estimatedDuration}hrs.
-                      </p>
+              {searchResults.length > 0 &&
+                searchResults.map((route) => (
+                  <div key={route._id} className="route-options">
+                    <Link to={`/routes/${route._id}`}>
+                      {" "}
+                      <img src={route.image} alt="picture" />
+                    </Link>
+                    <div className="route-info">
+                      <h4 className="icon-size-medium">{route.name}</h4>
+                      <div>
+                        <p className="icon-size-medium">
+                          <FontAwesomeIcon
+                            icon={faChartSimple}
+                            className="icon-size-medium"
+                          />{" "}
+                          {route.level}
+                        </p>
+                        <p className="icon-size-medium">
+                          <FontAwesomeIcon
+                            icon={faShoePrints}
+                            className="icon-size-medium"
+                          />{" "}
+                          {route.distance}km
+                        </p>
+                        <p className="icon-size-medium">
+                          <FontAwesomeIcon
+                            icon={faStopwatch}
+                            className="icon-size-medium"
+                          />{" "}
+                          {route.estimatedDuration}hrs.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         )}

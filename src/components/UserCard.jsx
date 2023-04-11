@@ -15,7 +15,8 @@ import {
 const UserCard = ({ user }) => {
   const [deleteUser, setDeleteUser] = useState(false);
   const Navigate = useNavigate();
-  const { logOutUser } = useAuth();
+  const { logOutUser, user: userInSesion } = useAuth();
+
 
   const handleDelete = async () => {
     try {
@@ -31,9 +32,11 @@ const UserCard = ({ user }) => {
     <div className="user-card">
       <div className="user-card-header">
         <img src={user.img} alt="user avatar" />
-        <Link to={"/users/edit"}>
-          <FontAwesomeIcon icon={faPen} className="profile-edit-icon" />
-        </Link>
+        {userInSesion._id === user._id && (
+          <Link to={"/users/edit"}>
+            <FontAwesomeIcon icon={faPen} className="profile-edit-icon" />
+          </Link>
+        )}
       </div>
       <div className="user-profile-info-container">
         <div className="user-profile-info transparent-card-background">
@@ -56,9 +59,15 @@ const UserCard = ({ user }) => {
             </p>
           </div>
           <div className="user-options">
-            <button onClick={() => setDeleteUser(true)}>
-              <FontAwesomeIcon icon={faTrash} className="user-evolution-info gray" />
-            </button>
+            {userInSesion._id === user._id && (
+              <button onClick={() => setDeleteUser(true)}>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="user-evolution-info gray"
+                />
+              </button>
+            )}
+
             {user && user.isAdmin && (
               <Link to={`/users/all`}>
                 <FontAwesomeIcon
