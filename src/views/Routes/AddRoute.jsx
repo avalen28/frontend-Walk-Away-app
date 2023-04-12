@@ -114,7 +114,7 @@ const AddRoute = () => {
           <label>Level</label>
           <input
             type="number"
-            min={0}
+            min={1}
             max={5}
             name="level"
             value={newRoute.level}
@@ -124,13 +124,13 @@ const AddRoute = () => {
         </div>
         <div className="new-route-block">
           <label>Description</label>
-          <input
+          <textarea
             type="text"
             maxLength="500"
             name="description"
             value={newRoute.description}
             onChange={handleChange}
-            className="new-route-description"
+            className="textarea"
           />
         </div>
         <div className="new-route-block">
@@ -235,15 +235,16 @@ const AddRoute = () => {
         </div>
 
         <div className="new-route-tips">
-          <label>tips</label>
-          <input
+          <h3>tips</h3>
+          <textarea
             type="text"
             name="tips"
             value={newRoute.tips}
             onChange={handleChange}
+            className="textarea"
           />
-          <button type="submit">Create Route</button>
         </div>
+          <button type="submit">Create Route</button>
       </form>
     </div>
   );

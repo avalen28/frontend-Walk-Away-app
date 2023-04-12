@@ -67,10 +67,12 @@ export default function Home() {
               placeholder="Name, distance or km"
               onChange={handleKey}
             />
-            <Link to={"/routes/all"} className="button-see-all">
-              {" "}
-              See all routes
-            </Link>
+            {user && isLoggedIn && (
+              <Link to={"/routes/all"} className="button-see-all">
+                {" "}
+                See all routes
+              </Link>
+            )}
           </div>
         </div>
       </div>

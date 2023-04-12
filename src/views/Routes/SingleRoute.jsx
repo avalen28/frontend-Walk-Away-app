@@ -181,7 +181,15 @@ const SingleRoute = () => {
                 )}
               </li>
             </ul>
-            <h3>Tips: {route.tips}</h3>
+            <div className="route-info-single-route">
+              <h3 className="title">Description</h3>
+              <h3>{route.description}</h3>
+            </div>
+            <div className="route-info-single-route">
+              <h3 className="title">Tips</h3>
+              <h3>{route.tips}</h3>
+            </div>
+
             {userInventary.other.length > 0 ? (
               <div className="personal-items">
                 <p className="personal-items-title">Your personal items</p>

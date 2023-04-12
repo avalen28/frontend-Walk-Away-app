@@ -41,7 +41,7 @@ img {
   color: #434444 !important;
 }
 * {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .App {
   height: 100vh;
@@ -731,9 +731,17 @@ form input {
   border-bottom: 1px solid gray;
   margin-bottom: 5px;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18pxpx;
+}
+.route-info-single-route {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
 }
 .personal-items {
   width: 90%;
@@ -827,6 +835,13 @@ form input {
   flex-direction: column;
   align-items: center;
   height: auto;
+  padding-bottom: 100px;
+}
+.new-route-info button {
+  margin-top: 30px;
+  background-color: beige;
+  padding: 10px 30px;
+  border-radius: 10px;
 }
 .new-route-block {
   width: 100%;
@@ -837,11 +852,63 @@ form input {
 }
 .new-route-block input {
   width: 80% !important;
-  border-bottom: none !important;
   text-align: center;
   background-color: var(--light-blue);
+  border-radius: 10px;
+  border: 1px solid #eceaea !important;
 }
-.new-route-description {
+.new-route-inventary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+.new-route-inventary h3 {
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.new-route-inventary-block {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 15px;
+}
+.new-route-inventary-block p {
+  width: 20%;
+  text-align: center;
+}
+.new-route-inventary-block select {
+  width: 80%;
+}
+.new-route-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+.new-route-tips h3 {
+  width: 100%;
+  text-align: center;
+  padding: 3px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.textarea {
+  border-radius: 10px;
+  border: 1px solid #eceaea;
+  padding: 5px;
+  height: 73px;
+  width: 92%;
+  text-align: center;
+  background-color: var(--light-blue);
 }
 
 /*Inventary*/
