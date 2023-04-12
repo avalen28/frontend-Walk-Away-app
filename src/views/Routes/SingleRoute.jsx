@@ -8,7 +8,11 @@ import { useAuth } from "../../hooks/useAuth";
 import RouteCard from "../../components/RouteCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCheck,faX, faHeart, faPen, faTrash
+  faCheck,
+  faX,
+  faHeart,
+  faPen,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SingleRoute = () => {
@@ -16,25 +20,35 @@ const SingleRoute = () => {
   const params = useParams();
   const Navigate = useNavigate();
   const [route, setRoute] = useState(null);
+  const [savedRoute, setSavedRoute] = useState(null);
   const [userInventary, setUserInventary] = useState(null);
   const [savedButton, setSavedButton] = useState(false);
   const [deleteRoute, setDeleteRoute] = useState(false);
+  
   const getRoute = async () => {
     try {
       const route = await routesService.getRoute(params.routeId);
-
       setRoute(route);
-      const responseSavedRoute = await savedRoutesService.getSingleRoute(
-        params.routeId
-      );
-
-      if (!responseSavedRoute) {
-        setSavedButton(true);
-      }
     } catch (error) {
       console.error(error);
     }
   };
+
+  const getSavedRoute = async () => {
+    try {
+       const responseSavedRoute = await savedRoutesService.getSingleRoute(
+         params.routeId
+       );
+       if (!responseSavedRoute) {
+         setSavedButton(true);
+       } else {
+         setSavedRoute(responseSavedRoute);
+       }
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
   const getInventary = async () => {
     try {
       const inventaryFromDB = await inventaryService.getInventary(user._id);
@@ -48,13 +62,25 @@ const SingleRoute = () => {
       const savedRouteFromDB = await savedRoutesService.postSavedRoute(
         route._id
       );
+      console.log(savedRouteFromDB)
       if (savedRouteFromDB) {
-        Navigate("/saved-routes/all");
+        setSavedRoute(savedRouteFromDB);
+        setSavedButton(false)
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+  const handleDeleteSavedRoute = async () => {
+    try {
+      const deleteSavedRoute = await savedRoutesService.deleteSavedRoute(savedRoute._id);
+      setSavedButton(true)
+    } catch (error) {
+      console.error(error)
+    }
+  };
+
   const handleDelete = async () => {
     try {
       await routesService.deleteRoute(route._id);
@@ -66,6 +92,7 @@ const SingleRoute = () => {
   };
   useEffect(() => {
     getRoute();
+    getSavedRoute();
     getInventary();
     // eslint-disable-next-line
   }, []);
@@ -84,10 +111,12 @@ const SingleRoute = () => {
                 />
               </button>
             ) : (
-              <FontAwesomeIcon
-                icon={faHeart}
-                className="route-user-options-icon saved"
-              />
+              <button onClick={handleDeleteSavedRoute}>
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  className="route-user-options-icon saved"
+                />
+              </button>
             )}
             {user && user.isAdmin && (
               <Link to={`/routes/edit/${route._id}`}>

@@ -37,6 +37,11 @@ class SavedRoutesService {
       .then(({ data }) => data)
       .catch((err) => console.error(err));
   }
+  deleteSavedRoute(savedRouteId) {
+    return this.api
+      .delete(`/delete/${savedRouteId}`)
+      .catch((error) => console.error(error));
+  }
 }
 
 const savedRoutesService = new SavedRoutesService();
