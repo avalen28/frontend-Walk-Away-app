@@ -151,7 +151,6 @@ form input {
 .home {
   height: 100vh;
 }
-
 .home-title {
   height: 39%;
   align-items: center;
@@ -164,6 +163,19 @@ form input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+.random-box {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.random-box p {
+  width: 87%;
+  word-break: break-word;
+  text-align: center;
+  font-style: oblique;
+  font-size: 21px;
 }
 
 .home-title h1 {

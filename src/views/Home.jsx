@@ -4,10 +4,13 @@ import { AuthContext } from "../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faShoePrints,faStopwatch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import quotes from "../data/quotes.json"
 
 export default function Home() {
+  
   const { isLoggedIn, user } = useContext(AuthContext);
   const [allRoutes, setAllRoutes] = useState([]);
+  const [randomQuote,setRandomQuote] = useState("")
   const [key, setKey] = useState("");
   const [searchResults, setSearchResults] = useState(null);
 
@@ -19,6 +22,10 @@ export default function Home() {
       console.error(error);
     }
   };
+  const getRandomQuote = () => {
+  
+    setRandomQuote(quotes[Math.floor(Math.random()*(quotes.length))])
+  }
 
   const handleFilter = () => {
     const keyNum = Number(key);
@@ -42,6 +49,10 @@ export default function Home() {
     getRoutes();
     // eslint-disable-next-line
   }, []);
+    useEffect(() => {
+      getRandomQuote();
+      // eslint-disable-next-line
+    }, [searchResults]);
 
   useEffect(() => {
     if (key !== "" && key !== " ") {
@@ -77,7 +88,13 @@ export default function Home() {
         </div>
       </div>
       <div className="body">
-        {!searchResults && <p>Hola</p>}
+        {!searchResults && (
+          <div className="random-box">
+<h3 className="title">Funny quote</h3>
+            <p>{randomQuote}</p>
+          </div>
+        
+        )}
         {searchResults && (
           <div className="search-results">
             <h3>Results</h3>
