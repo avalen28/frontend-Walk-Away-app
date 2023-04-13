@@ -2,10 +2,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPlus,faArrowLeft, faArrowRightFromBracket,faRightToBracket} from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus,faArrowLeft, faPowerOff,faRightToBracket} from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
-  const { user, isLoggedIn, logOutUser } = useAuth();
+  const { isLoggedIn, logOutUser } = useAuth();
   const navigate = useNavigate();
   return (
     <div className="navbar-sup">
@@ -25,10 +25,7 @@ export default function Navbar() {
         )}
         {isLoggedIn && (
           <button onClick={() => logOutUser()}>
-            <FontAwesomeIcon
-              icon={faArrowRightFromBracket}
-              className="navbar-icon"
-            />
+            <FontAwesomeIcon icon={faPowerOff} className="navbar-icon" />
           </button>
         )}
       </div>

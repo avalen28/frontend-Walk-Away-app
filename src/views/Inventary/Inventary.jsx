@@ -24,6 +24,7 @@ const Inventary = () => {
   };
   useEffect(() => {
     getInventary();
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="inventary-container block">

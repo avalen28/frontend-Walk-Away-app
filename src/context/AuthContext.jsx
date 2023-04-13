@@ -51,6 +51,7 @@ function AuthProviderWrapper(props) {
   // When the app first renders, let's see if the user's session is still active
   useEffect(() => {
     authenticateUser();
+    // eslint-disable-next-line
   }, []);
   
   return (

@@ -62,7 +62,6 @@ const SingleRoute = () => {
       const savedRouteFromDB = await savedRoutesService.postSavedRoute(
         route._id
       );
-      console.log(savedRouteFromDB)
       if (savedRouteFromDB) {
         setSavedRoute(savedRouteFromDB);
         setSavedButton(false)
@@ -74,7 +73,7 @@ const SingleRoute = () => {
 
   const handleDeleteSavedRoute = async () => {
     try {
-      const deleteSavedRoute = await savedRoutesService.deleteSavedRoute(savedRoute._id);
+      await savedRoutesService.deleteSavedRoute(savedRoute._id);
       setSavedButton(true)
     } catch (error) {
       console.error(error)

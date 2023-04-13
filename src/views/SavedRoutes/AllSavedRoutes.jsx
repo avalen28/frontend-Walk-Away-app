@@ -37,6 +37,7 @@ const AllSavedRoutes = () => {
 
   useEffect(() => {
     getSavedRoutes();
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="saved-routes-container">
@@ -46,7 +47,7 @@ const AllSavedRoutes = () => {
           return (
             <div key={savedRoute._id} className="route-card-saved">
               <Link to={`/routes/${savedRoute.routeId._id}`}>
-                <img src={savedRoute.routeId.image} alt="route picture" />
+                <img src={savedRoute.routeId.image} alt="route default visual" />
               </Link>
               <div className="route-saved-info">
                 <h4>{savedRoute.routeId.name}</h4>

@@ -62,6 +62,7 @@ const EditUser = () => {
     } else {
       setErrorMessage(undefined);
     }
+    // eslint-disable-next-line
   }, [newPassword]);
 
   return (

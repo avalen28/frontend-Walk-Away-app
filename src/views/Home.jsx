@@ -61,6 +61,7 @@ export default function Home() {
     } else {
       setSearchResults(null);
     }
+    // eslint-disable-next-line
   }, [key]);
 
   return (
@@ -105,7 +106,7 @@ export default function Home() {
                   <div key={route._id} className="route-options">
                     <Link to={`/routes/${route._id}`}>
                       {" "}
-                      <img src={route.image} alt="picture" />
+                      <img src={route.image} alt="default-visual" />
                     </Link>
                     <div className="route-info">
                       <h4 className="icon-size-medium">{route.name}</h4>

@@ -40,7 +40,6 @@ const formatRouteBody = (routeToFormat, typeofCheck) => {
 const formatBody = (inventary) => {
   let elemArr;
   if (typeof inventary.other === "undefined") {
-    console.log("undefined");
     return false;
   }
   if (typeof inventary.other === "object") {

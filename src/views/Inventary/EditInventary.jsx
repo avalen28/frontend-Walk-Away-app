@@ -78,6 +78,7 @@ const EditInventary = () => {
                 onChange={handleInventary}
                 required
               >
+                <option value="Empty">Empty</option>
                 <option value="1L.">1L.</option>
                 <option value="1.5L.">1.5L.</option>
                 <option value="2L.">2L.</option>
@@ -101,6 +102,7 @@ const EditInventary = () => {
                 value={inventary.food}
                 required
               >
+                <option value="Empty">Empty</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Snacks">Snacks</option>
                 <option value="All day meal">All day meal</option>
@@ -124,6 +126,7 @@ const EditInventary = () => {
                 onChange={handleInventary}
                 required
               >
+                <option value="Empty">Empty</option>
                 <option value="Trekking clothes (spring weather)">
                   Trekking clothes (spring weather)
                 </option>
@@ -152,6 +155,7 @@ const EditInventary = () => {
                 onChange={handleInventary}
                 required
               >
+                <option value="Empty">Empty</option>
                 <option value="Light boots or trekking slippers">
                   Light boots or trekking slippers
                 </option>
@@ -177,7 +181,9 @@ const EditInventary = () => {
               />
             </div>
 
-            <button type="submit" className="update-inventary">Update your inventary</button>
+            <button type="submit" className="update-inventary">
+              Update your inventary
+            </button>
           </form>
         )}
       </div>
