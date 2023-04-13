@@ -9,7 +9,6 @@ import {
   faShirt,
   faSocks,
 } from "@fortawesome/free-solid-svg-icons";
-
 import toast from "react-hot-toast";
 
 const EditInventary = () => {
@@ -32,11 +31,16 @@ const EditInventary = () => {
     const inventaryToDB = formatBody(inventary);
     if (inventaryToDB) {
       try {
-        await inventaryService.editInventary(inventaryToDB);
-        toast.success("inventary updated!")
-        Navigate("/inventary");
+        const response = await inventaryService.editInventary(inventaryToDB);
+        if (response) {
+            toast.success("inventary updated!");
+            Navigate("/inventary");
+        } else {
+           toast.error(" something went wrong. Check your fields and try again please");
+        }
       } catch (error) {
         console.error(error);
+         toast.error("ups...something went wrong. Please try again");
       }
     } else {
       toast.error("please check your form fields")

@@ -12,7 +12,6 @@ const formatRouteBody = (routeToFormat, typeofCheck) => {
   const estimatedNumber = Number(routeToFormat.estimatedDuration);
 
   if (typeofCheck === "edit") {
-
     if (typeof routeToFormat.image === "string") {
       if (routeToFormat.image.trim() === "") {
         return false;

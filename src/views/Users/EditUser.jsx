@@ -39,10 +39,12 @@ const EditUser = () => {
         authenticateUser();
         toast.success("Profile updated!")
         Navigate("/users/me");
+      } else {
+        toast.error("Please check your fields")
       }
     } catch (error) {
-      toast.error("Please check your fields")
       console.error(error);
+       toast.error("ups...something went wrong. Please try again");
     }
   };
 

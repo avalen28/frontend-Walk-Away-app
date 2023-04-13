@@ -10,6 +10,7 @@ import {
   faSocks,
   faPen
 } from "@fortawesome/free-solid-svg-icons";
+import toast from "react-hot-toast";
 
 const Inventary = () => {
   const { user } = useAuth();
@@ -20,6 +21,7 @@ const Inventary = () => {
       setInventary(inventaryFromDB);
     } catch (error) {
       console.error(error);
+       toast.error("something went wrong with your connection");
     }
   };
   useEffect(() => {

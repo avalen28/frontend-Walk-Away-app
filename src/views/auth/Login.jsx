@@ -30,7 +30,7 @@ export default function Login() {
         storeToken(response.authToken);
         authenticateUser();
         navigate('/');
-        toast.success('Welcome back!')
+        toast.success('Welcome!')
       } else {
         setErrorMessage('Unable to authenticate user')
       }

@@ -42,11 +42,18 @@ const EditRoute = () => {
     const routeCorrectFormatToDB = formatRouteBody(route, "edit");
     if (routeCorrectFormatToDB) {
       try {
-        await routesService.editRoute(routeId, routeCorrectFormatToDB);
-        toast.success("route updated");
-        Navigate(`/routes/${routeId}`);
+       const response = await routesService.editRoute(routeId, routeCorrectFormatToDB);
+        if (response) {
+          toast.success("route updated");
+          Navigate(`/routes/${routeId}`);
+        } else {
+           toast.error(
+             "something went wrong. Please check your fields and try again"
+           );
+        }
       } catch (error) {
         console.error(error);
+        toast.error("ups...something went wrong. Please try again");
       }
     } else {
       toast.error("please check your form fields");

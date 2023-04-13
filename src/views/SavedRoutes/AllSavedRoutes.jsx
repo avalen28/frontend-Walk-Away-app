@@ -81,7 +81,7 @@ const AllSavedRoutes = () => {
                       <button
                         onClick={() => handleStatus(savedRoute._id, "started")}
                       >
-                        Start route
+                        Start
                       </button>
                     ) : savedRoute.status === "started" ? (
                       <div>
@@ -90,14 +90,14 @@ const AllSavedRoutes = () => {
                             handleStatus(savedRoute._id, "finished")
                           }
                         >
-                          Finish route
+                          Finish
                         </button>
                         <button
                           onClick={() =>
                             handleStatus(savedRoute._id, "pending")
                           }
                         className="cancel-route-button">
-                          Cancel route
+                          Cancel
                         </button>
                       </div>
                     ) : (
@@ -114,8 +114,8 @@ const AllSavedRoutes = () => {
           );
         })}
       {savedRoutes && savedRoutes.length < 1 && (
-        <div>
-          <p>No routes saved... </p>
+        <div className="no-saved-routes">
+          <p className="title">No routes saved... </p>
           <Link to={"/routes/all"}>See all routes</Link>
         </div>
       )}

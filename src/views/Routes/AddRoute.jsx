@@ -10,14 +10,14 @@ import {
   faShirt,
   faSocks,
 } from "@fortawesome/free-solid-svg-icons";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const AddRoute = () => {
   const defaultRoute = {
     name: "",
-    image: undefined,
-    routeImage: undefined,
-    distance: 0,
+    image: "",
+    routeImage: "",
+    distance: 1,
     level: 1,
     description: "",
     estimatedDuration: 1,
@@ -43,14 +43,25 @@ const AddRoute = () => {
 
   const handleAddRoute = async () => {
     const routeCorrectFormatToDB = formatRouteBody(newRoute, "create");
-    try {
-      const createdRoute = await routesService.createNewRoute(
-        routeCorrectFormatToDB
-      );
-      Navigate(`/routes/${createdRoute._id}`);
-    } catch (error) {
-      console.error(error);
+    if (routeCorrectFormatToDB) {
+      try {
+        const createdRoute = await routesService.createNewRoute(
+          routeCorrectFormatToDB
+        );
+        if (createdRoute) {
+          toast.success("route created");
+          Navigate(`/routes/${createdRoute._id}`);
+        } else {
+          toast.error("please check your fields");
+        }
+      } catch (error) {
+        console.error(error);
+        toast.error("ups...something went wrong. Please try again");
+      }
+    } else {
+      toast.error("please check your form fields");
     }
+  
   };
   const handleCreate = (e) => {
     e.preventDefault();
@@ -103,7 +114,7 @@ const AddRoute = () => {
           <label>Distance (km)</label>
           <input
             type="number"
-            min="0"
+            min={1}
             name="distance"
             value={newRoute.distance}
             onChange={handleChange}
@@ -131,10 +142,11 @@ const AddRoute = () => {
             value={newRoute.description}
             onChange={handleChange}
             className="textarea"
+            required
           />
         </div>
         <div className="new-route-block">
-          <label>Estimated duration</label>
+          <label>Estimated duration (h.)</label>
           <input
             type="number"
             min={1}
@@ -244,7 +256,7 @@ const AddRoute = () => {
             className="textarea"
           />
         </div>
-          <button type="submit">Create Route</button>
+        <button type="submit">Create Route</button>
       </form>
     </div>
   );

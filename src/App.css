@@ -574,6 +574,18 @@ form input {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.no-saved-routes {
+  width: 100%;
+  gap: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-saved-routes a {
+  padding: 10px 30px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
 .saved-routes-container > h4 {
   width: 90%;
   font-size: 25px;
@@ -640,7 +652,7 @@ form input {
   align-items: center;
 }
 .route-card-saved-new-status p {
-  width: 36%;
+  width: 37%;
 }
 .route-card-saved-new-status div {
   width: 65%;
