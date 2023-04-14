@@ -29,7 +29,7 @@ const UserCard = ({ user }) => {
   };
   return (
     <div className="user-card">
-      <div className="user-card-header">
+      <div className={`user-card-header ${user.isAdmin?"padding-left":""}`}>
         <img src={user.img} alt="user avatar" />
         {userInSesion._id === user._id && (
           <Link to={"/users/edit"}>
