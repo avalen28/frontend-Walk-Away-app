@@ -77,7 +77,7 @@ export default function Home() {
               type="text"
               name="userSearch"
               value={key}
-              placeholder="Name, distance or km"
+              placeholder="Name, distance or level"
               onChange={handleKey}
             />
             {user && isLoggedIn && (
