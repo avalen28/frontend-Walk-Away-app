@@ -1,16 +1,16 @@
-# Walk Away app.
+# Walk Away
 
 ## Description
 
-This application is called Walk Away. One Trekking's mobile App with a gaming experience.
+This application is called Walk Away. A mobile app for trekking lovers with a gamification twist.
 
-His target are people who want to do trekking and have no experience about routes and wich items are required for those routes. for this reason, the User starts always with 0 points of experience (xp), level 1 and an empty backpack (User Inventary).
+Its target is people who want to do trekking but have no experience about what would be the appropriate routes for them, and what items would be required for those routes. For this reason, any user that signs up to the app will always start off having 0 points of experience (xp), being a level 1 user, and with an empty backpack (Inventary).
 
-Walk Away have Routes with level of dificulty and sugested backpack for this especific Route (now, Route Inventary) that sugest wich things are necessary.
+Walk Away has a collection of routes with multiple levels of difficulty, each route having a sugested backpack for it, that suggests what items are necessary.
 
-With every route completed, the user gain xp and with defined points can level up unlocking new Routes.
+Every time a route is completed, the user gains xp and when the user reaches certain amount of pre-defined xps, he will level up, unlocking new routes.
 
-In this App we can find two types of Users: Admin or no Admin. The first have some extra options in the App such as edit Route, add Route, delete Route and see all Users profiles.
+In this app we can find two types of users: admin or non-admin. The first have some extra options in the app such as being able to add new routes to the db, edit those routes, delete them, as well as seeing all users profiles.
 
 > Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
 > ![](picture.png)
@@ -40,23 +40,25 @@ npm run start
 ### MVP
 
 - User can sign up and create a new account
-- User can login
-- User can log out
-- User can edit his profile
+- User can login.
+- User can log out.
+- User can see his profile.
+- User can edit his profile.
 - User can see all Routes.
 - User can filter routes by name, distance or level.
-- User can see information about specific Route.
-- User can comparate his User inventary with the Route Inventary.
+- User can see information about specific route.
+- User can compare his User inventary with the Route Inventary.
 - User can edit his User Inventary.
+- User can see his saved routes.
 - User can save routes.
 - User can unsave routes.
 - User can start the saved route.
 - User can cancel the saved route.
 - User can finish the saved route.
-- User can do again one finished route.
+- User start again a route that has been previously finished.
 - User can delete his profile.
-- User Admin can create a new Route.
-- User Admin can edit one Route.
+- Admin User can create a new Route.
+- User Admin can edit every Route.
 - User Admin can see all Users profiles.
 - User Admin can delete one Route.
 
@@ -66,8 +68,8 @@ npm run start
 - User can see his specific position on the ranking.
 - User can rate the Route.
 - User can put some comment on the Route.
-- User write one secret code to confirm he/she finish the route.
-- User can see the weather.
+- User write a secret code to confirm he finished the route.
+- User can see the weather forecast for the route's location.
 
 ---
 

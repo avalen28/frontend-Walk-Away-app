@@ -84,6 +84,17 @@ const EditRoute = () => {
               name="name"
               value={route.name}
               onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="new-route-block">
+            <label>Route location</label>
+            <input
+              type="text"
+              name="location"
+              value={route.location}
+              onChange={handleChange}
+              required
             />
           </div>
           <div className="new-route-block">
@@ -93,6 +104,7 @@ const EditRoute = () => {
               name="image"
               value={route.image}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="new-route-block">
@@ -102,6 +114,7 @@ const EditRoute = () => {
               name="routeImage"
               value={route.routeImage}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="new-route-block">
@@ -112,6 +125,7 @@ const EditRoute = () => {
               name="distance"
               value={route.distance}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="new-route-block">
@@ -123,6 +137,7 @@ const EditRoute = () => {
               name="level"
               value={route.level}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="new-route-block">
@@ -134,6 +149,7 @@ const EditRoute = () => {
               value={route.description}
               onChange={handleChange}
               className="textarea"
+              required
             />
           </div>
           <div className="new-route-block">
@@ -143,6 +159,7 @@ const EditRoute = () => {
               name="estimatedDuration"
               value={route.estimatedDuration}
               onChange={handleChange}
+              required
             />
           </div>
 

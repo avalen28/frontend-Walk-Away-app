@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 const AddRoute = () => {
   const defaultRoute = {
     name: "",
+    location:"",
     image: "",
     routeImage: "",
     distance: 1,
@@ -92,6 +93,17 @@ const AddRoute = () => {
             required
           />
         </div>
+        <div className="new-route-block">
+          <label>Location</label>
+          <input
+            type="text"
+            name="location"
+            value={newRoute.location}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <div className="new-route-block">
           <label>Route picture</label>
           <input

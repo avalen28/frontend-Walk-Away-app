@@ -689,7 +689,6 @@ form input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 44vh;
   padding-top: 16px;
   align-items: center;
 }
@@ -719,8 +718,8 @@ form input {
   object-fit: cover;
 }
 .route-map-img {
-  width: 207px;
-  height: 100px;
+  width: 78%;
+  height: 130px;
   object-fit: cover;
 }
 .route-card-info {
@@ -730,13 +729,41 @@ form input {
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  width: 100%;
 }
 .stats {
+  margin-top: 10px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 87%;
+  width: 60%;
+}
+.stats-block {
+  display: flex;
+  width: 89%;
+  justify-content: center;
+  align-items: center;
+}
+.stats-block-1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.stats-block-1-info {
   display: flex;
   gap: 5px;
-  height: 87%;
-  width: 29%;
-  align-items: center;
+}
+.stats-block-2 {
+  display: flex;
+  width: 89%;
+}
+.stats-block-2-info {
+  display: flex;
+  width: 50%;
+  gap: 5px;
 }
 .route-inventary {
   width: 90%;
@@ -797,7 +824,7 @@ form input {
   width: 70%;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   margin: 30px 0;
 }
 .route-user-options-icon {
