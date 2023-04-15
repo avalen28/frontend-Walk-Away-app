@@ -33,11 +33,6 @@ To start the project run:
 npm run start
 ```
 
-You can use this app creating one user or login with the admin-user:
-
-email: alberto@gmail.com |
-password: Admin1234!
-
 ## Enjoy it!
 
 ## User stories
