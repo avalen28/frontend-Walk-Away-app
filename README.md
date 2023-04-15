@@ -39,16 +39,20 @@ npm run start
 
 ### MVP
 
-- User can sign up and create a new account
+- User can sign up and create a new account.
 - User can login.
 - User can log out.
 - User can see his profile.
 - User can edit his profile.
 - User can see all Routes.
+- User can delete his profile.
+
+### Backlog - finished
+
 - User can filter routes by name, distance or level.
 - User can see information about specific route.
-- User can compare his User inventary with the Route Inventary.
-- User can edit his User Inventary.
+- User can compare his user inventary with the route inventary.
+- User can edit his user inventary.
 - User can see his saved routes.
 - User can save routes.
 - User can unsave routes.
@@ -56,20 +60,21 @@ npm run start
 - User can cancel the saved route.
 - User can finish the saved route.
 - User start again a route that has been previously finished.
-- User can delete his profile.
-- Admin User can create a new Route.
-- User Admin can edit every Route.
-- User Admin can see all Users profiles.
-- User Admin can delete one Route.
+- User admin can create a new route.
+- User Admin can edit every route.
+- User Admin can see all users profiles.
+- User Admin can delete one route.
+- User can see the weather forecast for the route's location.
 
-### Backlog
+### Backlog - pending
 
 - User can see one global ranking.
 - User can see his specific position on the ranking.
-- User can rate the Route.
-- User can put some comment on the Route.
+- User can see other saved routes from users
+- User can rate the route.
+- User can put some comment on the route.
 - User write a secret code to confirm he finished the route.
-- User can see the weather forecast for the route's location.
+- User can see weather specific info (temp, wind, description...)
 
 ---
 
