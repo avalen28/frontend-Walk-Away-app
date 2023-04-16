@@ -80,7 +80,7 @@ npm run start
 
 ## Useful links
 
-- [Presentation slides]()
-- [Backend repository]()
-- [Backend deploy]()
-- [Deployed app]()
+- [Presentation slides](https://slides.com/albertovalenzuelamunoz/deck-25b4ad)
+- [Backend repository](github.com/avalen28/backend-template-m3)
+- [Frontend deploy](https://walk-away.netlify.app)
+- [Deployed REST API](walkaway.fly.dev)
