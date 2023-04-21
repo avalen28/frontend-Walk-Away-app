@@ -12,10 +12,9 @@ Every time a route is completed, the user gains xp and when the user reaches cer
 
 In this app we can find two types of users: admin or non-admin. The first have some extra options in the app such as being able to add new routes to the db, edit those routes, delete them, as well as seeing all users profiles.
 
-> Add a picture (logo, design, actual screen, gif, etc, whichever you prefer.)
-> ![](picture.png)
+## Important!
 
----
+Use mobile format.
 
 ## Instructions
 
