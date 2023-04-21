@@ -32,6 +32,13 @@ To start the project run:
 npm run start
 ```
 
+You can use this default user
+
+```bash
+email: prueba@gmail.com
+password: Usuario1234!
+```
+
 ## Enjoy it!
 
 ## User stories
